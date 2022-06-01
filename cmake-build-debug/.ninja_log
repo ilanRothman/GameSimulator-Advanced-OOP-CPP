@@ -1,0 +1,14 @@
+# ninja log v5
+15	509	6758091121436806	CMakeFiles/GameSimulator.dir/View.cpp.obj	1f331a602a818401
+21	557	6758091121968327	CMakeFiles/GameSimulator.dir/Warehouse.cpp.obj	911fa7effaed63f
+31	584	6758091122218379	CMakeFiles/GameSimulator.dir/Vehicle.cpp.obj	dd70b7ca92486b3c
+27	588	6758091122243202	CMakeFiles/GameSimulator.dir/SimulatorObj.cpp.obj	6d50e854b88291a9
+18	813	6758091124468342	CMakeFiles/GameSimulator.dir/Model.cpp.obj	cd0bc547ec0fa764
+0	852	6758091124908311	CMakeFiles/GameSimulator.dir/main.cpp.obj	a8fd432832243d3f
+588	1148	6758091127828356	CMakeFiles/GameSimulator.dir/Trooper.cpp.obj	8b915525c5e53771
+584	1148	6758091127778276	CMakeFiles/GameSimulator.dir/Chopper.cpp.obj	67cc78ebd80ef050
+852	1332	6758091129708272	CMakeFiles/GameSimulator.dir/Truck.cpp.obj	a34013ddda732d7c
+813	1380	6758091130186578	CMakeFiles/GameSimulator.dir/Geometry.cpp.obj	4e6e17eeb81051fe
+511	1463	6758091131018251	CMakeFiles/GameSimulator.dir/Controller.cpp.obj	f97ef06f680d5fda
+558	1467	6758091131064372	CMakeFiles/GameSimulator.dir/SimObjFactory.cpp.obj	2ae16227caedca83
+1468	1644	6758091132818247	GameSimulator.exe	13bb6f1c96a23e51
