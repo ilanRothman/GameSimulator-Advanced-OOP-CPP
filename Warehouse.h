@@ -8,7 +8,8 @@ class Warehouse: public SimulatorObj{
     private:
     int _inventory;
     public:
-        Warehouse(string &name, Point& location): SimulatorObj(name,location){;};
+        Warehouse(string& name,const Point& location, int inventory, string type):
+        SimulatorObj(name,location,type), _inventory(inventory){};
 
 };
 #endif //GAMESIMULATOR_WAREHOUSE_H

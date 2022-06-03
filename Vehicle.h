@@ -8,11 +8,9 @@ class Vehicle: public SimulatorObj{
 
 
 public:
-    Vehicle(string &name, Point &location, string& type): SimulatorObj(name, location), _type(type){};
+    Vehicle(string &name, const Point& location,string type): SimulatorObj(name, location,type){};
 
     virtual ~Vehicle() = default;
-
-    string getType()const {return _type;};
 
 };
 

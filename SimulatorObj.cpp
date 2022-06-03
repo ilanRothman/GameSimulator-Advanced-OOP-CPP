@@ -3,5 +3,5 @@
 
 
 const string &SimulatorObj::getName() const {
-    return this->name;
+    return this->_name;
 }

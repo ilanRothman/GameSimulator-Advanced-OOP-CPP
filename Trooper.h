@@ -6,7 +6,7 @@
 
 class Trooper: public Vehicle{
     public:
-        Trooper(string &name, Point& location, string &vType): Vehicle(name,location, vType){;};
+        Trooper(string &name,const Point& location, string Type): Vehicle(name,location, Type){};
         ~Trooper() {};
 };
 

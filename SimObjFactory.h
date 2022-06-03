@@ -9,13 +9,16 @@
 #include "Truck.h"
 #include "SimulatorObj.h"
 #include <memory>
+#include <map>
 using namespace std;
 
 class SimObjFactory{
     private:
-        enum Objects{WAREHOUSE, CHOPPER, TROOPER, TRUCK};
+    map<string,int> _types;
+
     public:
-        shared_ptr<SimulatorObj> create(Objects type, string &name, Point &locations, string &vType);
+    SimObjFactory();
+    shared_ptr<SimulatorObj> create(string &name,const Point &locations, string Type, int inventory);
 
 
 };
