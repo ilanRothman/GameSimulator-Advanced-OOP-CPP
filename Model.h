@@ -16,21 +16,37 @@ class Model{
 
     private:
     int _time;
-    vector<SimulatorObj*> _simObjects;
-    vector<vehiclePtr> _vehicleLst;
-    vector<Warehouse*> _warehouseLst;
+    vector<simuPtr> _simObjects;
+    vector<simuPtr> _vehicleLst;
+    vector<simuPtr> _warehouseLst;
     SimObjFactory* _simObjFactory;
 
     Model();
     static Model* Model_Instance;
 
     public:
-        static Model& get();
         Model(const Model& rhs) = delete;
         Model& operator=(const Model& rhs) = delete;
-        ~Model(){delete Model_Instance;}
+        ~Model();
+
         int getTime()const {return _time;}
-        vehiclePtr findVehicle(string &name);
+        simuPtr findVehicle(string &name);
+        simuPtr findWareHouse(const string& name) const;
+
+        void course(int __deg, int __speed, string& vehicleName); // for Chopper
+        void course(int __deg, const string& vehicleName);
+        void position(const pair<float,float>& __cords, string& vehicleName);
+        void position(const pair<float,float>& __cords,int __speed, string& vehicleName); // for Chopper
+        void destination(const string& wareHouse, const string& vehicleName);
+        void attack(const string& truck, const string& chopperName);
+        void stop(const string& vehicleName);
+        void addWareHouse(string name,const Point& point, int inventory);
+
+        /**
+         * Setters and Getters
+         */
+        static Model& get();
+
 };
 
 

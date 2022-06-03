@@ -36,7 +36,7 @@ private:
 
     void analyzeCmd(string& command);
     void exitCmd()const;
-    void vehicleCmd(string& command, stringstream& ss);
+    void vehicleCmd(stringstream& ss, string& vehicleName);
     void mapInit();
 
 };
