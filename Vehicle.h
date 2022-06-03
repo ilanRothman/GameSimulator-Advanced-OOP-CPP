@@ -6,8 +6,7 @@
 
 class Vehicle: public SimulatorObj{
 
-private:
-    string _type;
+
 public:
     Vehicle(string &name, Point &location, string& type): SimulatorObj(name, location), _type(type){};
 

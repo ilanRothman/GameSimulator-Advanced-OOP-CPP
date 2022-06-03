@@ -5,7 +5,7 @@
 
 class Truck: public Vehicle{
     public:
-        Truck(string &name, Point& location, string &vType): Vehicle(name,location,vType){;};
+        Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType){;};
 };
 
 #endif //GAMESIMULATOR_TRUCK_H

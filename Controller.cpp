@@ -1,8 +1,11 @@
 
 #include "Controller.h"
 
-Controller::Controller():_commandsMap(),_model(Model::get()),_view(make_shared<View>()) {
-mapInit();
+Controller::Controller(int argc, char** argv):_commandsMap(),_model(Model::get()),_view(make_shared<View>()),_files() {
+  _files.insert(_files.end(),argv, argv + argc);
+  checkWareHouse();
+//checkTrucks()
+  mapInit();
 }
 
 void Controller::getCommand() {

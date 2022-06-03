@@ -7,7 +7,7 @@
 
 class Chopper: public Vehicle{
 public:
-    Chopper(string &name, Point& location, string &vType): Vehicle(name,location, vType){;};
+    Chopper(string &name, const Point& location, string vType): Vehicle(name,location, vType){;};
 };
 
 #endif //GAMESIMULATOR_CHOPPER_H

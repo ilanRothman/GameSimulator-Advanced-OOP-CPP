@@ -20,8 +20,9 @@ with the user.
 
 class Controller {
 public:	
-	Controller();
+	Controller(int argc, char** argv);
     void getCommand();
+    void checkWareHouse();
 
 
 	// creates View object, runs the program by accepting user commands, then destroys View object
@@ -31,6 +32,7 @@ private:
     map<string,int> _commandsMap;
     Model& _model;
 	viewPtr _view;
+    vector<string> _files;
 
     void analyzeCmd(string& command);
     void exitCmd()const;

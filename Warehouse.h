@@ -5,6 +5,8 @@
 #include "SimulatorObj.h"
 
 class Warehouse: public SimulatorObj{
+    private:
+    int _inventory;
     public:
         Warehouse(string &name, Point& location): SimulatorObj(name,location){;};
 

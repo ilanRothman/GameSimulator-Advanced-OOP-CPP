@@ -12,7 +12,7 @@ class View{
         int _originY;
 
     public:
-        View(): _scale(2.0),_size(25), _originX(-10), _originY(-10){};
+        View(): _scale(5.0),_size(25), _originX(-20), _originY(-20){};
         void print();
 
     float getScale() const;

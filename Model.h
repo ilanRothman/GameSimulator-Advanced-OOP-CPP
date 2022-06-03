@@ -10,6 +10,7 @@
 using namespace std;
 using vehiclePtr = shared_ptr<Vehicle> ;
 using warehousePtr = shared_ptr<Warehouse> ;
+using simuPtr = shared_ptr<SimulatorObj>;
 
 class Model{
 
