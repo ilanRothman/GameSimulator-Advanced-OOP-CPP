@@ -46,6 +46,7 @@ class Model{
          * Setters and Getters
          */
         static Model& get();
+        vector<simuPtr>* getSimObjects() {return &_simObjects;};
 
 };
 

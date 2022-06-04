@@ -18,6 +18,7 @@ class SimulatorObj{
 
         virtual const string &getName() const;
         string getType(){return _type;}
+        Point* getLoc(){return &_location;};
 
 };
 

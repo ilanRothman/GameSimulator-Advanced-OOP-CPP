@@ -34,6 +34,7 @@ void Controller::analyzeCmd(string& command) {
 }
 
 void Controller::run() {
+    _view->update();
     _view->print();
 //    while(true){
 //        getCommand();
@@ -144,7 +145,7 @@ void Controller::checkWareHouse() {
       }
     }
 
-  _model.addWareHouse("Frankfurt",Point(40,10),100000);
+  _model.addWareHouse("Frankfurt",Point(15,10),100000);
 }
 
 

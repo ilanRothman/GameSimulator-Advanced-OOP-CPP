@@ -2,6 +2,8 @@
 #ifndef GAMESIMULATOR_VIEW_H
 #define GAMESIMULATOR_VIEW_H
 #include <iostream>
+#include "map"
+#include "Model.h"
 
 using namespace std;
 class View{
@@ -10,10 +12,15 @@ class View{
         int _size;
         int _originX;
         int _originY;
+        map<pair<int,int>,string> _objects;
+        Model& _model;
+
 
     public:
-        View(): _scale(5.0),_size(25), _originX(-20), _originY(-20){};
-        void print();
+        View(): _scale(2.0),_size(25), _originX(-20), _originY(-10), _objects(), _model(Model::get()){};
+        void print() const;
+        void update(); // updates ALL the simObject Cords
+        void getCords(int& x, int& y,const Point& p);
 
     float getScale() const;
 
@@ -30,6 +37,10 @@ class View{
     int getOriginY() const;
 
     void setOriginY(int originY);
+
+    void draw(int corX, int corY) const;
+
+    void drawLineBegin(int cor) const;
 };
 
 #endif //GAMESIMULATOR_VIEW_H
