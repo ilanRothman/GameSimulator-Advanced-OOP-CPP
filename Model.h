@@ -48,6 +48,7 @@ class Model{
         static Model& get();
         vector<simuPtr>* getSimObjects() {return &_simObjects;};
 
+    void addTruck(string &startingPoint, string truckName, const vector < pair<string, pair<double, int> > >& routs);
 };
 
 

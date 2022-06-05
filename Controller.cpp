@@ -1,11 +1,12 @@
 
 #include <fstream>
+#include <algorithm>
 #include "Controller.h"
 
 Controller::Controller(int argc, char** argv):_commandsMap(),_model(Model::get()),_view(make_shared<View>()),_files() {
   _files.insert(_files.end(),argv, argv + argc);
   checkWareHouse();
-//checkTrucks()
+  checkTrucks();
   mapInit();
 }
 
@@ -167,4 +168,63 @@ void Controller::mapInit()
   _commandsMap.insert({"zoom",7});
   _commandsMap.insert({"pan",8});
   _commandsMap.insert({"show",9});
+}
+
+void Controller::checkTrucks() {
+    string line, truckName, nextStop, arriveTime, leaveTime, prevLeaveTime, startingPoint;
+    int crates = 0;
+    int index = 0;
+    double time;
+    vector < pair<string, pair<double, int> > > routs;
+    index = getFirstTruckIndex();
+    while(index != _files.size()){
+        ifstream truckFile(_files[index]); // getting next file.
+        truckName = _files[index].substr(0,_files[index].size()-4); // name of truck
+        getline(truckFile,line);
+        std::replace( line.begin(), line.end(), ',', ' ');
+        stringstream ss(line);
+        ss >> startingPoint;
+        prevLeaveTime = "00:00";
+        while (getline(truckFile,line)){
+            std::replace( line.begin(), line.end(), ',', ' ');
+            stringstream ss(line);
+            ss >> nextStop >> arriveTime >> crates >> leaveTime;
+            time = getTime(prevLeaveTime,arriveTime);
+            prevLeaveTime = leaveTime;
+            routs.emplace_back(nextStop, make_pair(time,crates));
+        }
+        _model.addTruck(startingPoint, truckName,routs);
+
+
+    }
+
+
+
+}
+
+int Controller:: getFirstTruckIndex(){
+    int index = 0;
+    for(auto & _file : _files) {
+        index++;
+        if (_file == "-t")
+            return index; // index is now on first truck file.
+    }
+}
+
+double Controller::getTime( string &startTime, string &endTime) {
+    startTime.erase(remove(startTime.begin(), startTime.end(), ':'), startTime.end());
+    endTime.erase(remove(endTime.begin(), endTime.end(), ':'), endTime.end());
+    int sTime = stoi(startTime);
+    int eTime = stoi(endTime);
+    // turning times into minutes
+    int first_time_min = sTime / 100 * 60 + sTime % 100;
+    int second_time_min = eTime / 100 * 60 + eTime % 100;
+    double diff_time_min = second_time_min - first_time_min;
+    return diff_time_min / 60;
+
+
+
+
+
+
 }

@@ -37,3 +37,10 @@ Model::~Model() {
   delete Model_Instance;
   delete _simObjFactory;
 }
+
+void Model::addTruck(string &startingPoint, string truckName, const vector < pair<string, pair<double, int> > >& routs) {
+    Point startLoc(findWareHouse(startingPoint)->getLoc()->x,findWareHouse(startingPoint)->getLoc()->y);
+    auto  newTruck = (_simObjFactory->create(truckName, startLoc,"TRUCK", 0));
+//    TODO -- add option for adding rout
+
+}
