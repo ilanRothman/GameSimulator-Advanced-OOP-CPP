@@ -1,5 +1,5 @@
 
-
+#include <exception>
 #include "Model.h"
 Model* Model::Model_Instance;
 
@@ -41,6 +41,60 @@ Model::~Model() {
 void Model::addTruck(string &startingPoint, string truckName, const vector < pair<string, pair<double, int> > >& routs) {
     Point startLoc(findWareHouse(startingPoint)->getLoc()->x,findWareHouse(startingPoint)->getLoc()->y);
     auto  newTruck = (_simObjFactory->create(truckName, startLoc,"TRUCK", 0));
-//    TODO -- add option for adding rout
+    newTruck->setRouts(routs);
+    _simObjects.emplace_back(newTruck);
+    _vehicleLst.emplace_back(newTruck);
+}
+
+void Model::getStatus() {
+    getWarehousesStatus();
+    getVehiclesStatus();
 
 }
+
+void Model::getWarehousesStatus() {
+    for(auto &wHouse : _warehouseLst){
+        cout << wHouse->getName() << " at position " << wHouse->printLoc();
+        cout << ", Inventory: " << wHouse->getInventory() << endl;
+    }
+
+}
+
+void Model::getVehiclesStatus() {
+    for(auto &vehicle : _vehicleLst){
+        cout << vehicle->getType() << " " << vehicle->getName() << " at " << vehicle->printLoc();
+        cout << vehicle->getStatus() << endl;
+    }
+
+}
+
+void Model::course(float __deg, int __speed, string &vehicleName) {
+    shared_ptr<SimulatorObj> chopper =  findVehicle(vehicleName);
+    chopper->setCourse(__deg);
+    chopper->setSpeed(__speed);
+}
+
+void Model::course(float __deg, string &vehicleName) {
+    shared_ptr<SimulatorObj> vehicle =  findVehicle(vehicleName);
+    vehicle->setCourse(__deg);
+}
+
+void Model::createChopper(string &name, Point &startingPoint) {
+    if (findVehicle(name)){
+        throw;
+    }
+    auto  newChopper = (_simObjFactory->create(name, startingPoint,"CHOPPER", 0));
+    _simObjects.emplace_back(newChopper);
+    _vehicleLst.emplace_back(newChopper);
+
+}
+
+void Model::createTrooper(string &name, string &wareHouse) {
+    if(!findWareHouse(wareHouse))
+        throw;
+    auto newTrooper = _simObjFactory->create(name, *findWareHouse(wareHouse)->getLoc(),"TROOPER", 0);
+    _simObjects.emplace_back(newTrooper);
+    _vehicleLst.emplace_back(newTrooper);
+}
+
+

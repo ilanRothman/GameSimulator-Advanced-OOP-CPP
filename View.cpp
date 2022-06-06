@@ -35,6 +35,7 @@ void View::print() const {
 
     printCount == 2 ? printCount = 0 : printCount++;
   }
+  cout << endl;
 }
 void View::drawLineBegin(int cor) const {
   cout << cor;
@@ -66,6 +67,10 @@ int View::getSize() const {
 }
 
 void View::setSize(int size) {
+    if(size < 6 || size > 30){
+        cout<< "Size not allowed" << endl;
+        return;
+    }
     _size = size;
 }
 
@@ -104,6 +109,13 @@ void View::getCords(int& x,int& y,const Point& p) {
     y = static_cast<int>(p.y);
     x -= x % static_cast<int>(_scale);
     y -= y % static_cast<int>(_scale);
+}
+
+void View::setDefault() {
+    this->setOriginX(-10);
+    this->setOriginY(-10);
+    this->setSize(25);
+    this->setScale(2.00);
 }
 
 

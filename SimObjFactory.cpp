@@ -10,7 +10,7 @@ SimObjFactory::SimObjFactory():_types() {
 }
 
 shared_ptr<SimulatorObj> SimObjFactory::create(string& name,
-                                               const Point& location, string type = "NONE", int inventory = 0) {
+                                               const Point& location, string type, int inventory = 0) {
     switch (_types.at(type)){
         case 1:
             return make_shared<Warehouse>(name,location,inventory, "WAREHOUSE");

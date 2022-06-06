@@ -17,18 +17,26 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1d9247a-e94c-4b04-bc28-bd796b53221a" name="Changes" comment="me update">
+    <list default="true" id="a1d9247a-e94c-4b04-bc28-bd796b53221a" name="Changes" comment="adding a new truck.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chopper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Chopper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chopper.h" beforeDir="false" afterPath="$PROJECT_DIR$/Chopper.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Model.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model.h" beforeDir="false" afterPath="$PROJECT_DIR$/Model.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimObjFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimObjFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimulatorObj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimulatorObj.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimulatorObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/SimulatorObj.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trooper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Trooper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trooper.h" beforeDir="false" afterPath="$PROJECT_DIR$/Trooper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Truck.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truck.h" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vehicle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Vehicle.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vehicle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Vehicle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/View.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View.h" beforeDir="false" afterPath="$PROJECT_DIR$/View.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-cd7da4bf9bda05e1f217.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ab341ef583d2bcdc8ff9.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-06-01T17-51-47-0167.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Warehouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/Warehouse.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Chopper.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Chopper.cpp.obj" afterDir="false" />
@@ -42,11 +50,8 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/View.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/View.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Warehouse.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Warehouse.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GameSimulator.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GameSimulator.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warehouses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/warehouses.txt" afterDir="false" />
     </list>
     <list id="dfbf0365-1966-49a7-9bb2-02927763929e" name="Changes by iroth" comment="Changes by iroth" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,32 +80,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="cmake.loaded.for.project" value="true" />
-    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="GameSimulator" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-w warehouses.txt -t Godzilla.txt" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GameSimulator" TARGET_NAME="GameSimulator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GameSimulator" RUN_TARGET_NAME="GameSimulator">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameSimulator" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-w warehouses.txt -t Godzilla.txt" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GameSimulator" TARGET_NAME="GameSimulator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GameSimulator" RUN_TARGET_NAME="GameSimulator">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -121,6 +120,7 @@
       <workItem from="1654105500289" duration="383000" />
       <workItem from="1654105888272" duration="17000" />
       <workItem from="1654170131800" duration="19099000" />
+      <workItem from="1654505118641" duration="15206000" />
     </task>
     <task id="LOCAL-00001" summary="first declarations">
       <created>1654104904690</created>
@@ -142,7 +142,14 @@
       <option name="presentableId" value="LOCAL‎00003" />
       <updated>1654233421910</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adding a new truck.">
+      <created>1654456404861</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654456404861</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +171,8 @@
     <MESSAGE value="updatessss" />
     <MESSAGE value="me update" />
     <MESSAGE value="Changes by iroth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by iroth" />
+    <MESSAGE value="adding a new truck." />
+    <option name="LAST_COMMIT_MESSAGE" value="adding a new truck." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -176,8 +184,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/View.cpp</url>
-          <line>48</line>
+          <line>49</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Truck.cpp</url>
+          <line>8</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Model.cpp</url>
+          <line>65</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

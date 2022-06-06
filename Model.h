@@ -14,6 +14,8 @@ using simuPtr = shared_ptr<SimulatorObj>;
 
 class Model{
 
+
+
     private:
     int _time;
     vector<simuPtr> _simObjects;
@@ -33,8 +35,8 @@ class Model{
         simuPtr findVehicle(string &name);
         simuPtr findWareHouse(const string& name) const;
 
-        void course(int __deg, int __speed, string& vehicleName); // for Chopper
-        void course(int __deg, const string& vehicleName);
+        void course(float __deg, int __speed, string& vehicleName); // for Chopper
+        void course(float __deg, string& vehicleName);
         void position(const pair<float,float>& __cords, string& vehicleName);
         void position(const pair<float,float>& __cords,int __speed, string& vehicleName); // for Chopper
         void destination(const string& wareHouse, const string& vehicleName);
@@ -49,6 +51,16 @@ class Model{
         vector<simuPtr>* getSimObjects() {return &_simObjects;};
 
     void addTruck(string &startingPoint, string truckName, const vector < pair<string, pair<double, int> > >& routs);
+
+    void getStatus();
+
+    void getWarehousesStatus();
+
+    void getVehiclesStatus();
+
+    void createChopper(string &name, Point &startingPoint);
+
+    void createTrooper(string &name, string &wareHouse);
 };
 
 

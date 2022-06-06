@@ -9,20 +9,18 @@ class Truck: public Vehicle{
 private:
     int _crates;
     vector < pair < string, pair<double, int> > > routs; // vactor < destination name: (time,crates) >
+    int _nextIndex;
 public:
-    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType){;};
+    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType), _nextIndex(0) {Vehicle::setState("Moving");};
 
-    int getCrates() const {
-        return _crates;
-    }
+    int getCrates() const { return _crates; }
 
-    void setRouts(const vector<pair<string, pair<double, int>>> &routs) {
-        Truck::routs = routs;
-    }
+    void setRouts(const vector<pair<string, pair<double, int>>> &routs);
 
     void setCrates(int crates) {
         _crates = crates;
     }
+    string getStatus() override;
 
 private:
     public:

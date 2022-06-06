@@ -21,6 +21,7 @@ class View{
         void print() const;
         void update(); // updates ALL the simObject Cords
         void getCords(int& x, int& y,const Point& p);
+        void setDefault();
 
     float getScale() const;
 

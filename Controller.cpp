@@ -5,8 +5,8 @@
 
 Controller::Controller(int argc, char** argv):_commandsMap(),_model(Model::get()),_view(make_shared<View>()),_files() {
   _files.insert(_files.end(),argv, argv + argc);
-  checkWareHouse();
-  checkTrucks();
+  checkWareHouse(); // check and add the warehouses.
+  checkTrucks(); // check and add the trucks.
   mapInit();
 }
 
@@ -14,7 +14,7 @@ void Controller::getCommand() {
 
   string command;
 
-  cout << "Time " << _model.getTime() << "Enter Command ";
+  cout << "Time " << _model.getTime() << " Enter Command " << endl;
 
   getline(cin,command);
 
@@ -30,16 +30,22 @@ void Controller::analyzeCmd(string& command) {
 
     ss >> cmd; // getting the first command
 
-    if (_model.findVehicle(cmd)) // if first word in the command is vehicle name
-        vehicleCmd(ss,cmd);
+    if (_model.findVehicle(cmd)) { // if first word in the command is vehicle name
+        vehicleCmd(ss, cmd);
+        return;
+    }
+    doCommand(ss, cmd);
+
+
 }
 
 void Controller::run() {
-    _view->update();
-    _view->print();
-//    while(true){
-//        getCommand();
-//    }
+
+    while (true){
+        _view->update();
+        getCommand();
+    }
+
 }
 
 void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
@@ -56,9 +62,10 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 
           if (_model.findVehicle(vehicleName)->getType() == "Chopper") {
             ss >> speed;
-//            _model.course(stoi(deg), stoi(speed), vehicleName);
+            _model.course(stoi(deg), stoi(speed), vehicleName);
+            break;
           }
-//          _model.course(stoi(deg), vehicleName);
+          _model.course(stoi(deg), vehicleName);
           break;
         }
 
@@ -69,7 +76,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
           ss >> x >> y;
           if (_model.findVehicle(vehicleName)->getType() == "Chopper") {
             ss >> speed;
-//            _model.position(make_pair(stof(x), stof(y)), stoi(speed), vehicleName);
+//             _model.position(make_pair(stof(x), stof(y)), stoi(speed), vehicleName);
           }
 //          _model.position(make_pair(stof(x), stof(y)), vehicleName);
           break;
@@ -155,6 +162,70 @@ void Controller::exitCmd() const{
   cout << "Exiting Program";
   exit(0);
 }
+void Controller::doCommand(stringstream& ss, string &cmd) {
+    try {
+        switch (_commandsMap.at(cmd)) {
+            case 5: {
+                _view->setDefault();
+                break;
+            }
+            case 6: {
+                int size;
+                ss >> size;
+                _view->setSize(size);
+            }
+            case 7: {
+                float scale;
+                ss >> scale;
+                _view->setScale(scale);
+                break;
+            }
+            case 8: {
+                int orgX;
+                int orgY;
+                ss >> orgX >> orgY;
+                _view->setOriginX(orgX);
+                _view->setOriginY(orgY);
+                break;
+            }
+            case 9: {
+                _view->print();
+                break;
+            }
+            case 10: {
+                _model.getStatus();
+                break;
+            }
+            case 11: {
+                string vehicleName, type, location1, location2, startWarehouse;
+                ss >> vehicleName >> type;
+                if (vehicleName.size() > 12) {
+                    cout << "name too long";
+                    exitCmd();
+                }
+                if (type == "Chopper") {
+                    ss >> location1 >> location2;
+                    location1 = location1.substr(1, location1.size() - 2);
+                    location2 = location2.substr(0, location2.size() - 1);
+                    Point startPoint(stof(location1), stof(location2));
+                    _model.createChopper(vehicleName, startPoint);
+                    break;
+                }
+                ss >> startWarehouse;
+                _model.createTrooper(vehicleName, startWarehouse);
+
+
+            }
+
+        }
+    }
+        catch (...){
+            InvalidArgs("Invalid Arguments");
+            exitCmd();
+        }
+
+    }
+
 
 void Controller::mapInit()
 {
@@ -168,6 +239,9 @@ void Controller::mapInit()
   _commandsMap.insert({"zoom",7});
   _commandsMap.insert({"pan",8});
   _commandsMap.insert({"show",9});
+  _commandsMap.insert({"status",10});
+  _commandsMap.insert({"create",11});
+  _commandsMap.insert({"go",12});
 }
 
 void Controller::checkTrucks() {
@@ -189,11 +263,12 @@ void Controller::checkTrucks() {
             std::replace( line.begin(), line.end(), ',', ' ');
             stringstream ss(line);
             ss >> nextStop >> arriveTime >> crates >> leaveTime;
-            time = getTime(prevLeaveTime,arriveTime);
+            time = getTime(prevLeaveTime,arriveTime); // calculate travel time to dest.
             prevLeaveTime = leaveTime;
-            routs.emplace_back(nextStop, make_pair(time,crates));
+            routs.emplace_back(nextStop, make_pair(time,crates)); //adds next destination in correct order.
         }
         _model.addTruck(startingPoint, truckName,routs);
+        index++;
 
 
     }
@@ -228,3 +303,4 @@ double Controller::getTime( string &startTime, string &endTime) {
 
 
 }
+

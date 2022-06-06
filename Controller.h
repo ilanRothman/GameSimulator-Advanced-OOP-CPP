@@ -49,4 +49,6 @@ private:
     int getFirstTruckIndex();
 
     double getTime( string &startTime, string &endTime);
+
+    void doCommand(stringstream& ss, string &cmd);
 };
