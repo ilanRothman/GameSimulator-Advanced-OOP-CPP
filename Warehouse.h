@@ -5,13 +5,13 @@
 #include "SimulatorObj.h"
 
 class Warehouse: public SimulatorObj{
+
     private:
     int _inventory;
     public:
         Warehouse(string& name,const Point& location, int inventory, string type):
         SimulatorObj(name,location,type), _inventory(inventory){};
-
-        int getInventory() const{ return _inventory;}
+        int getInventory() const{ return _inventory;};
 
 
 };

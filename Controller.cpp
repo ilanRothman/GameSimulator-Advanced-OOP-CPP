@@ -56,25 +56,32 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
       switch (_commandsMap.at(cmd)) {
         case 0: // Course
         {
-          string deg, speed;
+
+         if(vehicle->getType() != "CHOPPER")
+         {
+             cout << "only valid for choppers... " << endl;
+             break;
+         }
+
+         double deg, speed;
 
           ss >> deg;
 
-          if (_model.findVehicle(vehicleName)->getType() == "Chopper") {
-            ss >> speed;
-            _model.course(stoi(deg), stoi(speed), vehicleName);
-            break;
-          }
-          _model.course(stoi(deg), vehicleName);
+          _model.course(deg, speed, vehicleName);
           break;
         }
+
 
         case 1: // Position
         {
           string x, y, speed;
 
           ss >> x >> y;
-          if (_model.findVehicle(vehicleName)->getType() == "Chopper") {
+
+          stoi(x); // checking if valid input
+          stoi(y);
+
+          if (vehicle->getType() == "CHOPPER") {
             ss >> speed;
 //             _model.position(make_pair(stof(x), stof(y)), stoi(speed), vehicleName);
           }
@@ -126,7 +133,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 }
 
 void Controller::checkWareHouse() {
-  string line, name, location1, location2, file;
+  string line, name, corX, corY, file;
   int inventory;
   //getting iterator to point at warehouse
   for(auto iter = _files.begin(); iter != _files.end(); iter++) {
@@ -139,11 +146,11 @@ void Controller::checkWareHouse() {
     while(getline(wareFile,line)){
       try {
         stringstream ss(line);
-        ss >> name >> location1 >> location2 >> inventory;
+        ss >> name >> corX >> corY >> inventory;
         name = name.substr(0, name.size() - 1);
-        location1 = location1.substr(1, location1.size() - 2);
-        location2 = location2.substr(0, location2.size() - 2);
-        Point warePoint(stof(location1), stof(location2));
+        corX = corX.substr(1, corX.size() - 2);
+        corY = corY.substr(0, corY.size() - 2);
+        Point warePoint(stof(corX), stof(corY));
         _model.addWareHouse(name,warePoint,inventory);
       }
 
@@ -197,17 +204,17 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
                 break;
             }
             case 11: {
-                string vehicleName, type, location1, location2, startWarehouse;
+                string vehicleName, type, corX, corY, startWarehouse;
                 ss >> vehicleName >> type;
                 if (vehicleName.size() > 12) {
                     cout << "name too long";
-                    exitCmd();
+                    return;
                 }
-                if (type == "Chopper") {
-                    ss >> location1 >> location2;
-                    location1 = location1.substr(1, location1.size() - 2);
-                    location2 = location2.substr(0, location2.size() - 1);
-                    Point startPoint(stof(location1), stof(location2));
+                if (type == "CHOPPER") {
+                    ss >> corX >> corY;
+                    corX = corX.substr(1, corX.size() - 2);
+                    corY = corY.substr(0, corY.size() - 1);
+                    Point startPoint(stof(corX), stof(corY));
                     _model.createChopper(vehicleName, startPoint);
                     break;
                 }
@@ -253,16 +260,12 @@ void Controller::checkTrucks() {
     index = getFirstTruckIndex();
     while(index != _files.size()){
         ifstream truckFile(_files[index]); // getting next file.
-        truckName = _files[index].substr(0,_files[index].size()-4); // name of truck
-        getline(truckFile,line);
-        std::replace( line.begin(), line.end(), ',', ' ');
+        parseFirstLine(line ,index, truckName, startingPoint, truckFile); // name and first line.
         stringstream ss(line);
         ss >> startingPoint;
         prevLeaveTime = "00:00";
         while (getline(truckFile,line)){
-            std::replace( line.begin(), line.end(), ',', ' ');
-            stringstream ss(line);
-            ss >> nextStop >> arriveTime >> crates >> leaveTime;
+            parseLine(line, nextStop, arriveTime, crates, leaveTime);
             time = getTime(prevLeaveTime,arriveTime); // calculate travel time to dest.
             prevLeaveTime = leaveTime;
             routs.emplace_back(nextStop, make_pair(time,crates)); //adds next destination in correct order.
@@ -303,4 +306,18 @@ double Controller::getTime( string &startTime, string &endTime) {
 
 
 }
+
+void Controller::parseLine(string &line, string &nextStop, string &arriveTime, int &crates, string &leaveTime) {
+    std::replace( line.begin(), line.end(), ',', ' ');
+    stringstream ss(line);
+    ss >> nextStop >> arriveTime >> crates >> leaveTime;
+}
+
+void Controller::parseFirstLine(string& line, int index, string &truckName, string &startingPoint, ifstream &truckFile) {
+    truckName = _files[index].substr(0,_files[index].size()-4); // name of truck
+    getline(truckFile,line);
+    std::replace( line.begin(), line.end(), ',', ' ');
+}
+
+
 

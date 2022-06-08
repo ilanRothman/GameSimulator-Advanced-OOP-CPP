@@ -8,8 +8,7 @@
 class Chopper: public Vehicle{
 public:
     Chopper(string &name, const Point& location, string vType): Vehicle(name,location, vType){Vehicle::setState("Stopped");};
-    string getStatus() override;
-
+    void getStatus();
 };
 
 #endif //GAMESIMULATOR_CHOPPER_H

@@ -5,6 +5,7 @@
 #include "SimulatorObj.h"
 
 class Vehicle: public SimulatorObj{
+
 private:
     float _course;
     string _state;
@@ -16,7 +17,7 @@ public:
 
     virtual ~Vehicle() = default;
 
-    float getCourse() const { return _course;}
+    virtual double getCourse() const { return _course;};
 
     double getSpeed() const { return _speed;}
 
@@ -30,7 +31,10 @@ public:
 
     const string &getHeadingTo() const { return headingTo; }
 
-    void setHeadingTo(const string &goTo) { this->headingTo = goTo; }
+    void setHeadingTo(const string &goTo) { this-> _headingTo = goTo; };
+
+    virtual void getStatus() = 0;
+
 };
 
 #endif //GAMESIMULATOR_VEHICLE_H

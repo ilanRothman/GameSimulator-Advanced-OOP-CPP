@@ -8,3 +8,4 @@ void Vehicle::setCourse(float course) {
     _course = course;
     setState("Course");
 }
+

@@ -51,4 +51,8 @@ private:
     double getTime( string &startTime, string &endTime);
 
     void doCommand(stringstream& ss, string &cmd);
+
+    void parseLine(string &line, string &nextStop, string &arriveTime, int &crates, string &leaveTime);
+
+    void parseFirstLine(string &line, int index, string &truckName, string &startingPoint, ifstream &truckFile);
 };

@@ -1,13 +1,12 @@
-//
-// Created by iroth on 6/1/2022.
-//
 
 #include "Chopper.h"
 
-string Chopper::getStatus() {
-    if(getState() == "Course"){
-        return " Heading on course " + to_string(getCourse()) + " deg, " + "speed " + to_string(getSpeed()) + "km/h";
-    }
-    return " " + getState();
+void Chopper::getStatus() {
+    if(getState() == "Course")
+        cout << " Heading on course " << getCourse() << " deg, " << "speed " << getSpeed() << " km/h" << endl;
 
+    else if(getState() == "Position")
+        cout << " Moving to " << getHeadingTo() << " speed " << getSpeed() << " km/h" << endl;
+    else
+        cout << " " + getState() << endl;
 }

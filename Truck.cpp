@@ -1,13 +1,12 @@
-//
-// Created by iroth on 6/1/2022.
-//
+
 
 #include "Truck.h"
 
-string Truck::getStatus() {
+void Truck::getStatus() {
     if(getState() == "Moving")
-        return " Heading to " + routs.at(_nextIndex).first + ", Crates: " + to_string(getCrates());
-    return " " + getState();
+        cout << " Heading to " <<  routs.at(_nextIndex).first << ", Crates: " << getCrates() << endl;
+    else
+        cout << " " + getState() << endl;
 
 }
 

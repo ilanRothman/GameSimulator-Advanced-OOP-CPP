@@ -12,6 +12,7 @@ typedef struct Point {
 	Point();
 	void print() const;
 	bool operator==(const Point& rhs);
+    static double getAngle(Point *p1, Point *p2);
 } Point;
 struct Polar_vector;
 typedef struct Cartesian_vector {

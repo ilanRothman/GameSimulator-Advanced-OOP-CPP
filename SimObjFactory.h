@@ -18,7 +18,7 @@ class SimObjFactory{
 
     public:
     SimObjFactory();
-    shared_ptr<SimulatorObj> create(string &name,const Point &locations, string Type, int inventory);
+    shared_ptr<Vehicle> create(string &name,const Point &locations, string Type);
 
 
 };

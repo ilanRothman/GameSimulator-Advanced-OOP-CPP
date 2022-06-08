@@ -67,3 +67,8 @@ bool Point::operator==(const Point & rhs)
 {
 	return x == rhs.x && y == rhs.y;
 }
+
+double Point::getAngle(Point *p1, Point *p2) {
+    return atan2(p2->y - p1->y, p2->x - p1->x) * 180/pi;
+}
+

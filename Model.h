@@ -19,8 +19,8 @@ class Model{
     private:
     int _time;
     vector<simuPtr> _simObjects;
-    vector<simuPtr> _vehicleLst;
-    vector<simuPtr> _warehouseLst;
+    vector<vehiclePtr> _vehicleLst;
+    vector<warehousePtr> _warehouseLst;
     SimObjFactory* _simObjFactory;
 
     Model();
@@ -32,16 +32,14 @@ class Model{
         ~Model();
 
         int getTime()const {return _time;}
-        simuPtr findVehicle(string &name);
-        simuPtr findWareHouse(const string& name) const;
+        vehiclePtr findVehicle(string &name);
+        warehousePtr findWareHouse(const string& name) const;
 
-        void course(float __deg, int __speed, string& vehicleName); // for Chopper
-        void course(float __deg, string& vehicleName);
-        void position(const pair<float,float>& __cords, string& vehicleName);
-        void position(const pair<float,float>& __cords,int __speed, string& vehicleName); // for Chopper
-        void destination(const string& wareHouse, const string& vehicleName);
-        void attack(const string& truck, const string& chopperName);
-        void stop(const string& vehicleName);
+        void course(double deg, double speed, string& vehicleName); // for Chopper
+        void position(const string& corX, const string& corY, vehiclePtr& vehicle,int speed = 0);
+        void destination(const string& wareHouse, vehiclePtr& vehicle);
+        void attack(const string& truck, vehiclePtr& vehicle);
+        void stop(vehiclePtr& vehicle){vehicle->setState("Stopped");};
         void addWareHouse(string name,const Point& point, int inventory);
 
         /**

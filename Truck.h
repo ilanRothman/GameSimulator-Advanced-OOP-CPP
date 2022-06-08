@@ -20,7 +20,7 @@ public:
     void setCrates(int crates) {
         _crates = crates;
     }
-    string getStatus() override;
+    void getStatus();
 
 private:
     public:
