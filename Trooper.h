@@ -9,7 +9,6 @@
 
 
 class Trooper: public Vehicle{
-    using warehousePtr = shared_ptr<Warehouse> ;
 
 private:
 
@@ -26,7 +25,8 @@ public:
     void init(vector<warehousePtr> &wHouseLst, shared_ptr<Warehouse> first);
     warehousePtr getNextDest();
 
-    double getDistance(const warehousePtr& dest);
+
+//    double getDistance(const warehousePtr& dest);
 };
 
 #endif //GAMESIMULATOR_TROOPER_H

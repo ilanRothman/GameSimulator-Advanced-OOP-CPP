@@ -11,6 +11,7 @@ double to_degrees(double theta_r)
 {
 	return theta_r * 180.0 / pi;
 }
+
 // construct a Cartesian_vector from a Polar_vector
 Cartesian_vector::Cartesian_vector(const Polar_vector& pv) {
 	delta_x = pv.r * cos(pv.theta);
@@ -72,3 +73,6 @@ double Point::getAngle(Point *p1, Point *p2) {
     return atan2(p2->y - p1->y, p2->x - p1->x) * 180/pi;
 }
 
+double getDistance(const Point & a, const Point & b) {
+  return sqrt(pow(a.x - b.x,2) + pow(a.y - b.y,2)) * 100;
+}

@@ -1,12 +1,11 @@
 
 #ifndef GAMESIMULATOR_MODEL_H
 #define GAMESIMULATOR_MODEL_H
+
 #include "SimObjFactory.h"
-#include "SimulatorObj.h"
-#include "Vehicle.h"
-#include "Warehouse.h"
 #include "vector"
 #include <memory>
+
 using namespace std;
 using vehiclePtr = shared_ptr<Vehicle> ;
 using warehousePtr = shared_ptr<Warehouse> ;

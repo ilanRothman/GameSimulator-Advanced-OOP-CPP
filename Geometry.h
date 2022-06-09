@@ -29,3 +29,9 @@ typedef struct Polar_vector {
 	double r;
 	double theta;
 } Polar_vector;
+
+/**
+ * returns the distance between two points * IN KM *
+ */
+static double getDistance(const Point&, const Point&);
+

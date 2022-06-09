@@ -7,6 +7,10 @@
 #include <vector>
 #include "Geometry.h"
 #include "cmath"
+#include <climits>
+#include <memory>
+
+class Model;
 
 class SimulatorObj{
 

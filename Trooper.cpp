@@ -22,12 +22,14 @@ void Trooper::setMapRouts(vector<warehousePtr> &warehouses) {
 }
 
 shared_ptr<Warehouse> Trooper::getNextDest() {
+
     warehousePtr currClosest;
-    double minDist = LONG_MAX;
+    double minDist = MAXFLOAT;
     double currDist = 0;
+
     for(auto &wareHouse: _visitedMap){ // loop over warehouses
         if(!wareHouse.second){ // find one who hasn't been visited yet.
-            currDist = getDistance((wareHouse.first)); // get distance from that warehouse.
+          currDist = getDistance(*getLoc(),*wareHouse.first->getLoc()); // get distance from that warehouse.
             if(currDist == minDist)
                 if(currClosest->getName()[0] > wareHouse.first->getName()[0]){ // pick the one with lower letter.
                     currClosest = wareHouse.first;
@@ -43,7 +45,7 @@ shared_ptr<Warehouse> Trooper::getNextDest() {
     return currClosest;
 }
 
-double Trooper::getDistance(const warehousePtr& dest) {
-    return sqrt( pow((dest->getLoc()->x) - (getLoc()->x) , 2) + pow((dest->getLoc()->y) - (getLoc()->y) , 2));
-}
+//double Trooper::getDistance(const warehousePtr& dest) {
+//    return sqrt( pow((dest->getLoc()->x) - (getLoc()->x) , 2) + pow((dest->getLoc()->y) - (getLoc()->y) , 2));
+//}
 

@@ -7,9 +7,9 @@
 #include "Chopper.h"
 #include "Trooper.h"
 #include "Truck.h"
-#include "SimulatorObj.h"
 #include <memory>
 #include <map>
+
 using namespace std;
 using vehiclePtr = shared_ptr<Vehicle> ;
 

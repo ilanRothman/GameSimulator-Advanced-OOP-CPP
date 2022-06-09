@@ -113,7 +113,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 
           ss >> truckName;
 
-//        _model.attack(truckName,vehicleName);
+          _model.attack(truckName,vehicleName);
           break;
         }
 

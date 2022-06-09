@@ -1,6 +1,7 @@
 
 #include <exception>
 #include "Model.h"
+
 Model* Model::Model_Instance;
 
 Model::Model():_time(0),_simObjects(),_vehicleLst(),_warehouseLst(),_simObjFactory(new SimObjFactory()) {
@@ -100,6 +101,9 @@ void Model::position(const string& corX, const string& corY, vehiclePtr &vehicle
 
     if(speed)
         vehicle->setSpeed(speed);
+}
+void Model::attack(const string &truck, vehiclePtr &vehicle) {
+//  dynamic_pointer_cast<Chopper>(vehicle)->attack(findVehicle(truck)); //TODO need to finish
 }
 
 

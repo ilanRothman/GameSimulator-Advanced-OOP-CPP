@@ -5,37 +5,41 @@
 #include "SimulatorObj.h"
 #include "Warehouse.h"
 
-
 class Vehicle: public SimulatorObj{
 
-private:
-    double _course;
-    string _state;
-    double _speed;
-    string _headingTo;
 
-public:
-    Vehicle(string &name, const Point& location,string type): SimulatorObj(name, location,type), _course(0), _speed(0){};
+  private:
+      double _course;
+      string _state;
+      double _speed;
+      string _headingTo;
 
-    virtual ~Vehicle() = default;
+  public:
+      using vehiclePtr = shared_ptr<Vehicle>;
+      using warehousePtr = shared_ptr<Warehouse>;
 
-    virtual double getCourse() const { return _course;};
+      Vehicle(string &name, const Point& location,string type): SimulatorObj(name, location,type), _course(0), _speed(0){};
 
-    double getSpeed() const { return _speed;};
+      virtual ~Vehicle() = default;
 
-    virtual void setCourse(double course);
+      virtual double getCourse() const { return _course;};
 
-    void setSpeed(double speed) { _speed = speed;};
+      double getSpeed() const { return _speed;}
 
-    const string &getState() const { return _state;};
+      virtual void setCourse(double course);
 
-    void setState(const string &state) { this->_state = state;};
+      void setSpeed(double speed) { _speed = speed;}
 
-    const string &getHeadingTo() { return _headingTo; };
+      const string &getState() const { return _state;}
 
-    void setHeadingTo(const string &goTo) { this-> _headingTo = goTo; };
+      void setState(const string &state) { this->_state = state;}
 
-    virtual void getStatus() = 0;
+      const string &getHeadingTo() const { return _headingTo; }
+
+      void setHeadingTo(const string &goTo) { this-> _headingTo = goTo; };
+
+      virtual void getStatus() = 0;
+
 
 };
 

@@ -10,3 +10,18 @@ void Chopper::getStatus() {
     else
         cout << " " + getState() << endl;
 }
+bool Chopper::attack(Vehicle::vehiclePtr &truck) {
+
+  bool copsAround = dynamic_pointer_cast<Truck>(truck)->checkCops(); // checks if cops around the truck
+  bool robbed = false;
+
+  if(getDistance(*getLoc(),*truck->getLoc()) <= _attackRange && !copsAround) // checks if chopper in attack range
+  {
+    dynamic_pointer_cast<Truck>(truck)->robbed();
+    _attackRange++;
+    robbed = true;
+  }
+
+  setState("Stopped");
+  return robbed;
+}
