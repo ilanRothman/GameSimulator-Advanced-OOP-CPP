@@ -1,0 +1,119 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CMakeReloadState\">\r\n    <option name=\"reloaded\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CMakeRunConfigurationManager\">\r\n    <generated />\r\n  </component>\r\n  <component name=\"CMakeSettings\" AUTO_RELOAD=\"true\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" ENABLED=\"true\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a1d9247a-e94c-4b04-bc28-bd796b53221a\" name=\"Changes\" comment=\"first declarations\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectApplicationVersion\">\r\n    <option name=\"ide\" value=\"CLion\" />\r\n    <option name=\"majorVersion\" value=\"2022\" />\r\n    <option name=\"minorVersion\" value=\"1.1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"29yhEwgbFur3kTBpvTNJmo0TLC6\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"cf.first.check.clang-format\": \"false\",\r\n    \"cidr.known.project.marker\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/iroth/CLionProjects/GameSimulator\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"GameSimulator\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"GameSimulator\" TARGET_NAME=\"GameSimulator\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"GameSimulator\" RUN_TARGET_NAME=\"GameSimulator\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a1d9247a-e94c-4b04-bc28-bd796b53221a\" name=\"Changes\" comment=\"\" />\r\n      <created>1654091124511</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1654091124511</updated>\r\n      <workItem from=\"1654091126341\" duration=\"5854000\" />\r\n      <workItem from=\"1654097346707\" duration=\"7267000\" />\r\n      <workItem from=\"1654104849398\" duration=\"563000\" />\r\n      <workItem from=\"1654105433148\" duration=\"53000\" />\r\n      <workItem from=\"1654105500289\" duration=\"383000\" />\r\n      <workItem from=\"1654105888272\" duration=\"17000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"first declarations\">\r\n      <created>1654104904690</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654104904690</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"first declarations\">\r\n      <created>1654104996753</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654104996753</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first declarations\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"first declarations\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,9 @@
+     <option name="reloaded" value="true" />
+   </component>
+   <component name="CMakeRunConfigurationManager">
+-    <generated />
++    <generated>
++      <config projectName="GameSimulator" targetName="GameSimulator" />
++    </generated>
+   </component>
+   <component name="CMakeSettings" AUTO_RELOAD="true">
+     <configurations>
+@@ -12,7 +14,10 @@
+     </configurations>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a1d9247a-e94c-4b04-bc28-bd796b53221a" name="Changes" comment="first declarations" />
++    <list default="true" id="a1d9247a-e94c-4b04-bc28-bd796b53221a" name="Changes" comment="first declarations">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -21,6 +26,7 @@
+   <component name="ClangdSettings">
+     <option name="formatViaClangd" value="false" />
+   </component>
++  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+@@ -38,24 +44,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.cidr.known.project.marker": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "cf.first.check.clang-format": "false",
+-    "cidr.known.project.marker": "true",
+-    "last_opened_file_path": "C:/Users/iroth/CLionProjects/GameSimulator"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
++    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/iroth/CLionProjects/GameSimulator&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager">
+     <configuration name="GameSimulator" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GameSimulator" TARGET_NAME="GameSimulator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GameSimulator" RUN_TARGET_NAME="GameSimulator">
+-      <method v="2">
+-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+       <method v="2">
+         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+       </method>
+@@ -74,7 +75,9 @@
+       <workItem from="1654104849398" duration="563000" />
+       <workItem from="1654105433148" duration="53000" />
+       <workItem from="1654105500289" duration="383000" />
+-      <workItem from="1654105888272" duration="17000" />
++      <workItem from="1654105888272" duration="400000" />
++      <workItem from="1654172110060" duration="1264000" />
++      <workItem from="1654440840632" duration="1000" />
+     </task>
+     <task id="LOCAL-00001" summary="first declarations">
+       <created>1654104904690</created>
+@@ -90,7 +93,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1654104996753</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="first declarations">
++      <created>1654106035975</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1654106035975</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+Index: cmake-build-debug/Testing/Temporary/LastTest.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Start testing: Jun 01 20:51 Jerusalem Daylight Time\r\n----------------------------------------------------------\r\nEnd testing: Jun 01 20:51 Jerusalem Daylight Time\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/Testing/Temporary/LastTest.log b/cmake-build-debug/Testing/Temporary/LastTest.log
+--- a/cmake-build-debug/Testing/Temporary/LastTest.log	
++++ b/cmake-build-debug/Testing/Temporary/LastTest.log	
+@@ -1,3 +1,3 @@
+-Start testing: Jun 01 20:51 Jerusalem Daylight Time
++Start testing: Jun 05 17:54 Jerusalem Daylight Time
+ ----------------------------------------------------------
+-End testing: Jun 01 20:51 Jerusalem Daylight Time
++End testing: Jun 05 17:54 Jerusalem Daylight Time

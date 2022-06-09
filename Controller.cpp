@@ -1,6 +1,5 @@
 
-#include <fstream>
-#include <algorithm>
+
 #include "Controller.h"
 
 Controller::Controller(int argc, char** argv):_commandsMap(),_model(Model::get()),_view(make_shared<View>()),_files() {
@@ -8,6 +7,8 @@ Controller::Controller(int argc, char** argv):_commandsMap(),_model(Model::get()
   checkWareHouse(); // check and add the warehouses.
   checkTrucks(); // check and add the trucks.
   mapInit();
+  cout << fixed << showpoint;
+  cout << setprecision(3);
 }
 
 void Controller::getCommand() {
@@ -51,7 +52,12 @@ void Controller::run() {
 void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
     string cmd;
     ss >> cmd;
+
     try {
+        vehiclePtr vehicle = _model.findVehicle(vehicleName);
+        if (!vehicle)
+            throw;
+
 
       switch (_commandsMap.at(cmd)) {
         case 0: // Course
@@ -65,7 +71,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 
          double deg, speed;
 
-          ss >> deg;
+          ss >> deg >> speed;
 
           _model.course(deg, speed, vehicleName);
           break;
@@ -83,9 +89,9 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 
           if (vehicle->getType() == "CHOPPER") {
             ss >> speed;
-//             _model.position(make_pair(stof(x), stof(y)), stoi(speed), vehicleName);
+             _model.position(x, y, vehicle,stoi(speed));
           }
-//          _model.position(make_pair(stof(x), stof(y)), vehicleName);
+          _model.position(x, y, vehicle);
           break;
         }
 
@@ -105,20 +111,15 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
         {
           string truckName;
 
-            ss >> truckName;
-            if(!_model.findVehicle(truckName))
-              throw;
+          ss >> truckName;
 
-//            _model.attack(truckName,vehicleName);
-            break;
+//        _model.attack(truckName,vehicleName);
+          break;
         }
 
         case 4: // Stop
         {
-            if(!_model.findVehicle(vehicleName))
-              throw;
-
-//            _model.stop(vehicleName);
+            _model.stop(vehicle);
             break;
         }
 
@@ -163,12 +164,11 @@ void Controller::checkWareHouse() {
   _model.addWareHouse("Frankfurt",Point(15,10),100000);
 }
 
-
-
 void Controller::exitCmd() const{
   cout << "Exiting Program";
   exit(0);
 }
+
 void Controller::doCommand(stringstream& ss, string &cmd) {
     try {
         switch (_commandsMap.at(cmd)) {
@@ -220,10 +220,7 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
                 }
                 ss >> startWarehouse;
                 _model.createTrooper(vehicleName, startWarehouse);
-
-
             }
-
         }
     }
         catch (...){
@@ -256,14 +253,18 @@ void Controller::checkTrucks() {
     int crates = 0;
     int index = 0;
     double time;
-    vector < pair<string, pair<double, int> > > routs;
-    index = getFirstTruckIndex();
+    vector < pair<string, pair<double, int> > > routs; // hold the rout of the truck.
+
+    index = getFirstTruckIndex(); // gets the truck file index.
+
     while(index != _files.size()){
+
         ifstream truckFile(_files[index]); // getting next file.
         parseFirstLine(line ,index, truckName, startingPoint, truckFile); // name and first line.
         stringstream ss(line);
         ss >> startingPoint;
         prevLeaveTime = "00:00";
+
         while (getline(truckFile,line)){
             parseLine(line, nextStop, arriveTime, crates, leaveTime);
             time = getTime(prevLeaveTime,arriveTime); // calculate travel time to dest.
@@ -273,11 +274,7 @@ void Controller::checkTrucks() {
         _model.addTruck(startingPoint, truckName,routs);
         index++;
 
-
     }
-
-
-
 }
 
 int Controller:: getFirstTruckIndex(){
@@ -299,11 +296,6 @@ double Controller::getTime( string &startTime, string &endTime) {
     int second_time_min = eTime / 100 * 60 + eTime % 100;
     double diff_time_min = second_time_min - first_time_min;
     return diff_time_min / 60;
-
-
-
-
-
 
 }
 

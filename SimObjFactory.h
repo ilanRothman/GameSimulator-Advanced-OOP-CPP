@@ -11,6 +11,7 @@
 #include <memory>
 #include <map>
 using namespace std;
+using vehiclePtr = shared_ptr<Vehicle> ;
 
 class SimObjFactory{
     private:

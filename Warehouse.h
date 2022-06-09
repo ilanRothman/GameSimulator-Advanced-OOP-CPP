@@ -13,6 +13,5 @@ class Warehouse: public SimulatorObj{
         SimulatorObj(name,location,type), _inventory(inventory){};
         int getInventory() const{ return _inventory;};
 
-
 };
 #endif //GAMESIMULATOR_WAREHOUSE_H

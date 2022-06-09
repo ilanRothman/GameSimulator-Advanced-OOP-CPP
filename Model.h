@@ -14,8 +14,6 @@ using simuPtr = shared_ptr<SimulatorObj>;
 
 class Model{
 
-
-
     private:
     int _time;
     vector<simuPtr> _simObjects;

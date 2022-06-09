@@ -3,14 +3,16 @@
 #define GAMESIMULATOR_VEHICLE_H
 
 #include "SimulatorObj.h"
+#include "Warehouse.h"
+
 
 class Vehicle: public SimulatorObj{
 
 private:
-    float _course;
+    double _course;
     string _state;
     double _speed;
-    string headingTo;
+    string _headingTo;
 
 public:
     Vehicle(string &name, const Point& location,string type): SimulatorObj(name, location,type), _course(0), _speed(0){};
@@ -19,17 +21,17 @@ public:
 
     virtual double getCourse() const { return _course;};
 
-    double getSpeed() const { return _speed;}
+    double getSpeed() const { return _speed;};
 
-    virtual void setCourse(float course);
+    virtual void setCourse(double course);
 
-    void setSpeed(double speed) { _speed = speed;}
+    void setSpeed(double speed) { _speed = speed;};
 
-    const string &getState() const { return _state;}
+    const string &getState() const { return _state;};
 
-    void setState(const string &state) { this->_state = state;}
+    void setState(const string &state) { this->_state = state;};
 
-    const string &getHeadingTo() const { return headingTo; }
+    const string &getHeadingTo() { return _headingTo; };
 
     void setHeadingTo(const string &goTo) { this-> _headingTo = goTo; };
 

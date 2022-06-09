@@ -4,6 +4,9 @@
 #include <iostream>
 #include <sstream>
 #include "map"
+#include <fstream>
+#include <algorithm>
+#include <iomanip>
 
 struct InvalidArgs{
     explicit InvalidArgs(const string& msg)

@@ -27,12 +27,14 @@ warehousePtr Model::findWareHouse(const string &name) const {
       return w;
   return nullptr;
 }
+
 void Model::addWareHouse(string name,const Point &point, int inventory) {
 
   auto newWare = make_shared<Warehouse>(name,point,inventory,"WAREHOUSE");
   _warehouseLst.emplace_back(newWare);
   _simObjects.emplace_back(newWare);
 }
+
 Model::~Model() {
   delete Model_Instance;
   delete _simObjFactory;
@@ -57,7 +59,6 @@ void Model::getWarehousesStatus() {
         wHouse->printLoc();
         cout << ", Inventory: " << wHouse->getInventory() << endl;
     }
-
 }
 
 void Model::getVehiclesStatus() {
@@ -66,7 +67,6 @@ void Model::getVehiclesStatus() {
         vehicle->printLoc();
         vehicle->getStatus();
     }
-
 }
 
 void Model::course(double deg, double speed, string &vehicleName) {
@@ -82,7 +82,6 @@ void Model::createChopper(string &name, Point &startingPoint) {
     auto  newChopper = (_simObjFactory->create(name, startingPoint,"CHOPPER"));
     _simObjects.emplace_back(newChopper);
     _vehicleLst.emplace_back(newChopper);
-
 }
 
 void Model::createTrooper(string &name, string &wareHouse) {

@@ -4,8 +4,8 @@
 
 #include "Vehicle.h"
 
-void Vehicle::setCourse(float course) {
+void Vehicle::setCourse(double course) {
     _course = course;
-    setState("Course");
+    setState("course");
 }
 
