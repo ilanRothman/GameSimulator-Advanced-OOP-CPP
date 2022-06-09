@@ -19,43 +19,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a1d9247a-e94c-4b04-bc28-bd796b53221a" name="Changes" comment="adding trooper, chopper, status view commands and course">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chopper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Chopper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chopper.h" beforeDir="false" afterPath="$PROJECT_DIR$/Chopper.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Geometry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Geometry.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Geometry.h" beforeDir="false" afterPath="$PROJECT_DIR$/Geometry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Model.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model.h" beforeDir="false" afterPath="$PROJECT_DIR$/Model.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimObjFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimObjFactory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimObjFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/SimObjFactory.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimulatorObj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimulatorObj.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimulatorObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/SimulatorObj.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trooper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Trooper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trooper.h" beforeDir="false" afterPath="$PROJECT_DIR$/Trooper.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Truck.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Truck.h" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vehicle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Vehicle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vehicle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Vehicle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Warehouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/Warehouse.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Chopper.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Chopper.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Controller.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Controller.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Geometry.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Geometry.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Model.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Model.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/SimObjFactory.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/SimObjFactory.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/SimulatorObj.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/SimulatorObj.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Trooper.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Trooper.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Truck.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Truck.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Vehicle.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Vehicle.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/View.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/View.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Warehouse.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/Warehouse.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GameSimulator.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/GameSimulator.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GameSimulator.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warehouses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/warehouses.txt" afterDir="false" />
     </list>
     <list id="dfbf0365-1966-49a7-9bb2-02927763929e" name="Changes by iroth" comment="Changes by iroth" />
     <list id="549b4cec-f850-4638-b5b9-442f13f8a543" name="Changes by Paz_m" comment="">
@@ -79,116 +42,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Controller.h">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="9" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="53" end1="53" start2="56" end2="60" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Model.h">
-      <ranges>
-        <range start1="16" end1="18" start2="16" end2="16" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="21" end1="23" start2="19" end2="21" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="34" end1="36" start2="32" end2="34" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="37" end1="44" start2="35" end2="40" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Vehicle.cpp">
-      <ranges>
-        <range start1="6" end1="7" start2="6" end2="7" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="8" end1="9" start2="8" end2="9" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="10" end1="10" start2="10" end2="11" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Model.cpp">
-      <ranges>
-        <range start1="15" end1="16" start2="15" end2="16" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="23" end1="24" start2="23" end2="24" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="29" end1="29" start2="29" end2="30" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="31" end1="32" start2="32" end2="33" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="35" end1="35" start2="36" end2="37" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="42" end1="44" start2="44" end2="46" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="51" end1="52" start2="53" end2="53" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="56" end1="57" start2="57" end2="59" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="59" end1="60" start2="61" end2="61" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="64" end1="66" start2="65" end2="68" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="67" end1="68" start2="69" end2="69" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="70" end1="74" start2="71" end2="75" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="75" end1="80" start2="76" end2="76" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="85" end1="86" start2="81" end2="82" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="88" end1="89" start2="84" end2="84" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="94" end1="95" start2="89" end2="92" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="98" end1="98" start2="95" end2="104" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Controller.cpp">
-      <ranges>
-        <range start1="1" end1="3" start2="1" end2="2" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="10" end1="10" start2="9" end2="11" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="53" end1="53" start2="54" end2="55" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="54" end1="54" start2="56" end2="60" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="58" end1="59" start2="64" end2="72" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="60" end1="61" start2="73" end2="74" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="62" end1="68" start2="75" end2="76" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="70" end1="70" start2="78" end2="79" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="76" end1="77" start2="85" end2="90" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="78" end1="79" start2="91" end2="92" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="80" end1="81" start2="93" end2="94" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="100" end1="103" start2="113" end2="114" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="104" end1="106" start2="115" end2="117" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="110" end1="114" start2="121" end2="122" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="128" end1="129" start2="136" end2="137" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="141" end1="142" start2="149" end2="150" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="143" end1="146" start2="151" end2="154" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="157" end1="159" start2="165" end2="165" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="164" end1="164" start2="170" end2="171" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="199" end1="200" start2="206" end2="207" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="203" end1="204" start2="210" end2="211" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="205" end1="210" start2="212" end2="217" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="215" end1="217" start2="222" end2="222" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="218" end1="219" start2="223" end2="223" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="251" end1="253" start2="255" end2="259" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="254" end1="254" start2="260" end2="261" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="255" end1="258" start2="262" end2="263" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="261" end1="261" start2="266" end2="267" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="262" end1="265" start2="268" end2="269" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="272" end1="273" start2="276" end2="276" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="274" end1="277" start2="277" end2="277" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="299" end1="304" start2="299" end2="299" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="305" end1="305" start2="300" end2="314" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Vehicle.h">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="7" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="7" end1="7" start2="9" end2="10" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="8" end1="9" start2="11" end2="12" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="11" end1="12" start2="14" end2="15" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="18" end1="19" start2="21" end2="22" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="20" end1="21" start2="23" end2="24" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="22" end1="23" start2="25" end2="26" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="24" end1="25" start2="27" end2="28" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="26" end1="27" start2="29" end2="30" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="28" end1="29" start2="31" end2="32" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="30" end1="31" start2="33" end2="34" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="32" end1="33" start2="35" end2="39" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Warehouse.h">
-      <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="12" end1="14" start2="13" end2="14" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-        <range start1="15" end1="16" start2="15" end2="15" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/SimObjFactory.h">
-      <ranges>
-        <range start1="13" end1="13" start2="13" end2="14" changelist="549b4cec-f850-4638-b5b9-442f13f8a543" />
-        <range start1="20" end1="21" start2="21" end2="22" changelist="a1d9247a-e94c-4b04-bc28-bd796b53221a" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -242,7 +95,8 @@
       <workItem from="1654505118641" duration="15277000" />
       <workItem from="1654527933535" duration="7000" />
       <workItem from="1654532987390" duration="1484000" />
-      <workItem from="1654690720718" duration="20292000" />
+      <workItem from="1654690720718" duration="20353000" />
+      <workItem from="1654773838094" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="first declarations">
       <created>1654104904690</created>
@@ -278,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654522856049</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding trooper, chopper, status view commands and course">
+      <created>1654711491012</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654711491012</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
