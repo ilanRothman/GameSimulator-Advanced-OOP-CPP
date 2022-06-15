@@ -6,6 +6,5 @@
 
 void Vehicle::setCourse(double course) {
     _course = course;
-    setState("course");
 }
 
