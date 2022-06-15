@@ -24,9 +24,14 @@ public:
     void setMapRouts(vector<warehousePtr> &warehouses);
     void init(vector<warehousePtr> &wHouseLst, shared_ptr<Warehouse> first);
     warehousePtr getNextDest();
+    void setNext(warehousePtr warehouse);
 
 
 //    double getDistance(const warehousePtr& dest);
+    void makeAllFalse();
+
+    void getClosest(bool &found, warehousePtr &currCloses);
+    void update(){};
 };
 
 #endif //GAMESIMULATOR_TROOPER_H

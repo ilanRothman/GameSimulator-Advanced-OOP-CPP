@@ -17,7 +17,7 @@ class View{
 
 
     public:
-        View(): _scale(2.0),_size(15), _originX(-10), _originY(-10), _objects(), _model(Model::get()){};
+        View(): _scale(2.0),_size(40), _originX(-20), _originY(-20), _objects(), _model(Model::get()){};
         void print() const;
         void update(); // updates ALL the simObject Cords
         void getCords(int& x, int& y,const Point& p);

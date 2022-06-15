@@ -14,7 +14,7 @@ Model &Model::get() {
     return *Model_Instance;
 }
 
-vehiclePtr Model::findVehicle(string &name) {
+vehiclePtr Model::findVehicle(const string &name) const {
    for(auto& v: _vehicleLst){
        if (v->getName() == name)
            return v;
@@ -41,10 +41,12 @@ Model::~Model() {
   delete _simObjFactory;
 }
 
-void Model::addTruck(string &startingPoint, string truckName, const vector < pair<string, pair<double, int> > >& routs) {
+void Model::addTruck(string &startingPoint, string truckName, const routesVec & routes, timeVec &times) {
     Point startLoc(findWareHouse(startingPoint)->getLoc()->x,findWareHouse(startingPoint)->getLoc()->y);
     auto  newTruck = (_simObjFactory->create(truckName, startLoc,"TRUCK"));
-    dynamic_pointer_cast<Truck>(newTruck)->setRouts(routs);
+    dynamic_pointer_cast<Truck>(newTruck)->setRoutes(routes);
+    dynamic_pointer_cast<Truck>(newTruck)->setTimes(times);
+    dynamic_pointer_cast<Truck>(newTruck)->init(); // speed and course.
     _simObjects.emplace_back(newTruck);
     _vehicleLst.emplace_back(newTruck);
 }
@@ -103,7 +105,24 @@ void Model::position(const string& corX, const string& corY, vehiclePtr &vehicle
         vehicle->setSpeed(speed);
 }
 void Model::attack(const string &truck, vehiclePtr &vehicle) {
-//  dynamic_pointer_cast<Chopper>(vehicle)->attack(findVehicle(truck)); //TODO need to finish
+    vehiclePtr truckPtr = findVehicle(truck);
+    dynamic_pointer_cast<Chopper>(vehicle)->attack(truckPtr);
+}
+
+void Model::destination(const string &wareHouse, vehiclePtr &vehicle) {
+    if(vehicle->getType() != "State_trooper"){
+        cout << "not a state trooper." << endl;
+        return;
+    }
+    dynamic_pointer_cast<Trooper>(vehicle)->setNext(findWareHouse(wareHouse));
+}
+
+void Model::go() {
+    _time++;
+    for(auto obj : _vehicleLst){
+        obj->update();
+    }
+
 }
 
 

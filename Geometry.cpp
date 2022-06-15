@@ -70,9 +70,13 @@ bool Point::operator==(const Point & rhs)
 }
 
 double Point::getAngle(Point *p1, Point *p2) {
-    return atan2(p2->y - p1->y, p2->x - p1->x) * 180/pi;
+    return atan2(p2->y - p1->y, p2->x - p1->x) * 180 / pi;
 }
 
-double getDistance(const Point & a, const Point & b) {
-  return sqrt(pow(a.x - b.x,2) + pow(a.y - b.y,2)) * 100;
+double Point::getDistance(const Point & a, const Point & b) {
+    return sqrt(pow(a.x - b.x,2) + pow(a.y - b.y,2)) * 100;
 }
+
+//double getDistance(const Point & a, const Point & b) {
+//  return sqrt(pow(a.x - b.x,2) + pow(a.y - b.y,2)) * 100;
+//}

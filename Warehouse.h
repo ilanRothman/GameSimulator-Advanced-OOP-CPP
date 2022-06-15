@@ -12,6 +12,7 @@ class Warehouse: public SimulatorObj{
         Warehouse(string& name,const Point& location, int inventory, string type):
         SimulatorObj(name,location,type), _inventory(inventory){};
         int getInventory() const{ return _inventory;};
+        void setInventory(int inventory);
 
 };
 #endif //GAMESIMULATOR_WAREHOUSE_H

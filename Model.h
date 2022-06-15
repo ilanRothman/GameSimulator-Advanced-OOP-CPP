@@ -10,6 +10,8 @@ using namespace std;
 using vehiclePtr = shared_ptr<Vehicle> ;
 using warehousePtr = shared_ptr<Warehouse> ;
 using simuPtr = shared_ptr<SimulatorObj>;
+using timeVec = vector< pair<string,string> >;
+using routesVec = vector < pair<string, pair<double, int> > >;
 
 class Model{
 
@@ -29,7 +31,7 @@ class Model{
         ~Model();
 
         int getTime()const {return _time;}
-        vehiclePtr findVehicle(string &name);
+        vehiclePtr findVehicle(const string &name) const;
         warehousePtr findWareHouse(const string& name) const;
 
         void course(double deg, double speed, string& vehicleName); // for Chopper
@@ -45,7 +47,7 @@ class Model{
         static Model& get();
         vector<simuPtr>* getSimObjects() {return &_simObjects;};
 
-    void addTruck(string &startingPoint, string truckName, const vector < pair<string, pair<double, int> > >& routs);
+    void addTruck(string &startingPoint, string truckName, const routesVec & routes, timeVec &times);
 
     void getStatus();
 
@@ -56,6 +58,8 @@ class Model{
     void createChopper(string &name, Point &startingPoint);
 
     void createTrooper(string &name, string &wareHouse);
+
+    void go();
 };
 
 

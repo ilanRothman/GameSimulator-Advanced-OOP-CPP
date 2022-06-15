@@ -24,12 +24,39 @@ void Trooper::setMapRouts(vector<warehousePtr> &warehouses) {
 shared_ptr<Warehouse> Trooper::getNextDest() {
 
     warehousePtr currClosest;
-    double minDist = MAXFLOAT;
-    double currDist = 0;
+    bool found = false;
 
+    getClosest(found,currClosest);
+    if(!found){ // start new loop again.
+        makeAllFalse();
+        setHeadingTo(firstVisit->getName());
+        setCourse(Point::getAngle(getLoc(),firstVisit->getLoc()));
+        return firstVisit;
+    }
+    setHeadingTo(currClosest->getName());
+    setCourse(Point::getAngle(getLoc(),currClosest->getLoc()));
+    return currClosest;
+}
+
+void Trooper::setNext(Vehicle::warehousePtr warehouse) {
+    setHeadingTo(warehouse->getName());
+    setCourse(Point::getAngle(getLoc(),warehouse->getLoc()));
+    setState("course");
+}
+
+void Trooper::makeAllFalse() {
+    for(auto& warehouse : _visitedMap){
+        warehouse.second = false;
+   }
+}
+
+void Trooper::getClosest(bool &found, warehousePtr &currClosest) {
+    double minDist = LONG_MAX;
+    double currDist = 0;
     for(auto &wareHouse: _visitedMap){ // loop over warehouses
         if(!wareHouse.second){ // find one who hasn't been visited yet.
-          currDist = getDistance(*getLoc(),*wareHouse.first->getLoc()); // get distance from that warehouse.
+            found = true;
+            currDist = Point::getDistance(*getLoc(),*wareHouse.first->getLoc()); // get distance from that warehouse.
             if(currDist == minDist)
                 if(currClosest->getName()[0] > wareHouse.first->getName()[0]){ // pick the one with lower letter.
                     currClosest = wareHouse.first;
@@ -40,12 +67,7 @@ shared_ptr<Warehouse> Trooper::getNextDest() {
             }
         }
     }
-    setHeadingTo(currClosest->getName());
-    setCourse(Point::getAngle(getLoc(),currClosest->getLoc()));
-    return currClosest;
 }
 
-//double Trooper::getDistance(const warehousePtr& dest) {
-//    return sqrt( pow((dest->getLoc()->x) - (getLoc()->x) , 2) + pow((dest->getLoc()->y) - (getLoc()->y) , 2));
-//}
+
 

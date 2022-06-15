@@ -1,11 +1,17 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
+
 // angle units conversion functions
 double to_radians(double theta_d);
 double to_degrees(double theta_r);
 // class declarations
 typedef struct Point {
+
+/**
+ * returns the distance between two points * IN KM *
+ */
+    static double getDistance(const Point&, const Point&);
 	double x;
 	double y;
 	Point(double x, double y);
@@ -30,8 +36,6 @@ typedef struct Polar_vector {
 	double theta;
 } Polar_vector;
 
-/**
- * returns the distance between two points * IN KM *
- */
-static double getDistance(const Point&, const Point&);
+
+
 

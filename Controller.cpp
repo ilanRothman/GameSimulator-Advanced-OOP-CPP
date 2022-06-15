@@ -102,8 +102,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
           ss >> wareHouse;
           if (!_model.findWareHouse(wareHouse))
             throw;
-
-//          _model.destination(wareHouse, vehicleName);
+          _model.destination(wareHouse, vehicle);
           break;
         }
 
@@ -113,7 +112,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 
           ss >> truckName;
 
-          _model.attack(truckName,vehicleName);
+          _model.attack(truckName,vehicle);
           break;
         }
 
@@ -221,6 +220,9 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
                 ss >> startWarehouse;
                 _model.createTrooper(vehicleName, startWarehouse);
             }
+            case 12:{
+                _model.go();
+            }
         }
     }
         catch (...){
@@ -253,7 +255,8 @@ void Controller::checkTrucks() {
     int crates = 0;
     int index = 0;
     double time;
-    vector < pair<string, pair<double, int> > > routs; // hold the rout of the truck.
+    vector < pair<string, pair<double, int> > > routes; // hold the rout of the truck.
+    vector< pair<string,string> > times; // holds arrive times and leave times.
 
     index = getFirstTruckIndex(); // gets the truck file index.
 
@@ -267,11 +270,12 @@ void Controller::checkTrucks() {
 
         while (getline(truckFile,line)){
             parseLine(line, nextStop, arriveTime, crates, leaveTime);
-            time = getTime(prevLeaveTime,arriveTime); // calculate travel time to dest.
+            time = getTime(prevLeaveTime,arriveTime , leaveTime); // calculate travel time to dest.
             prevLeaveTime = leaveTime;
-            routs.emplace_back(nextStop, make_pair(time,crates)); //adds next destination in correct order.
+            routes.emplace_back(nextStop, make_pair(time,crates)); //adds next destination in correct order.
+            times.emplace_back(arriveTime,leaveTime);
         }
-        _model.addTruck(startingPoint, truckName,routs);
+        _model.addTruck(startingPoint, truckName, routes, times);
         index++;
 
     }
@@ -286,9 +290,10 @@ int Controller:: getFirstTruckIndex(){
     }
 }
 
-double Controller::getTime( string &startTime, string &endTime) {
+double Controller::getTime( string &startTime, string &endTime, string & leaveTime) {
     startTime.erase(remove(startTime.begin(), startTime.end(), ':'), startTime.end());
     endTime.erase(remove(endTime.begin(), endTime.end(), ':'), endTime.end());
+    leaveTime.erase(remove(leaveTime.begin(), leaveTime.end(), ':'), leaveTime.end());
     int sTime = stoi(startTime);
     int eTime = stoi(endTime);
     // turning times into minutes

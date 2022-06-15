@@ -18,8 +18,10 @@ class SimulatorObj{
         string _name;
         Point _location;
         string _type;
+public:
+    void setLocation(const Point &location);
 
- public:
+public:
         SimulatorObj(string& name,const Point& location,string &type): _name(name), _location(location), _type(type){};
         string getType(){return _type;};
 

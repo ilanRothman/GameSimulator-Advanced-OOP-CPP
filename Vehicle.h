@@ -40,6 +40,8 @@ class Vehicle: public SimulatorObj{
 
       virtual void getStatus() = 0;
 
+      virtual void update() = 0;
+
 
 };
 

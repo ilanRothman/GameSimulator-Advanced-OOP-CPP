@@ -16,6 +16,7 @@ public:
     {Vehicle::setState("Stopped");};
     void getStatus();
     bool attack(vehiclePtr& truck);
+    void update(){};
 };
 
 #endif //GAMESIMULATOR_CHOPPER_H
