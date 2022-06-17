@@ -25,3 +25,16 @@ bool Chopper::attack(Vehicle::vehiclePtr &truck) {
   setState("Stopped");
   return robbed;
 }
+
+void Chopper::update(){
+    if(getState() == "Stopped")
+        return;
+    drive(1);
+
+}
+
+void Chopper::setCourse(double course) {
+    Vehicle::setCourse(course);
+    setState("Course");
+}
+

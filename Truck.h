@@ -13,10 +13,10 @@ private:
     int _crates;
     routesVec _routes; // vector < destination name: (time,crates) >
     timeVec  _times; // vector < arriveTime, LeaveTime >
-    int _nextIndex;
+    int _index;
 
 public:
-    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType), _nextIndex(0) {Vehicle::setState("Moving");};
+    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType), _index(0) {Vehicle::setState("Moving");};
 
     int getCrates() const { return _crates; }
 
@@ -46,19 +46,22 @@ public:
 
     void arrived();
 
-    bool updateIndex();
+    void updateIndex();
 
-    bool checkIfLeave();
-
-    void drive(double over);
-
-    double calcTimeLeft(double time);
+    double calcTimeLeft(int time);
 
     shared_ptr<Warehouse> getNextDest();
 
     bool needToMove();
     bool stay();
-    void checkWithinIteration();
+
+    void startMove();
+
+    bool inRange(int arriveTime);
+
+    bool done();
+
+    warehousePtr getCurrentWarehouse();
 };
 
 #endif //GAMESIMULATOR_TRUCK_H
