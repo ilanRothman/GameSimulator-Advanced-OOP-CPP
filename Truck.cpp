@@ -25,7 +25,6 @@ void Truck::setRoutes(const routesVec &routes) {
         crates += el.second.second;
     }
     setCrates(crates);
-
 }
 
 bool Truck::checkCops() {
@@ -138,6 +137,7 @@ bool Truck::needToMove() {
     return true;
 }
 
+// return true if object need to stay, false otherwise.
 bool Truck::stay()
 {
     double toStay = calcTimeLeft(stoi(_times.at(_index - 1).second));
@@ -201,4 +201,17 @@ warehousePtr Truck::getCurrentWarehouse() {
 //}
 
 
+
+//    auto next
+//    double distLeft =
+
+//      if(move())   // true if arrived to warehouse
+//        arrived();
+//    if(Model::get().getTime() - 1)
+//      if(getState() == "Parked")
+//        if(!calcTimeLeft(Model::get().getTime(), stof(_times.at(_index).second)))
+//          return;
+//
+//    if(move())
+//      arrived();
 

@@ -53,6 +53,7 @@ public:
     shared_ptr<Warehouse> getNextDest();
 
     bool needToMove();
+
     bool stay();
 
     void startMove();

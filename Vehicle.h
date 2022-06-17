@@ -38,6 +38,8 @@ class Vehicle: public SimulatorObj{
 
       void setHeadingTo(const string &goTo) { this-> _headingTo = goTo; };
 
+      virtual void drive(double leftOver);
+
       virtual void getStatus() = 0;
 
       virtual void update() = 0;
