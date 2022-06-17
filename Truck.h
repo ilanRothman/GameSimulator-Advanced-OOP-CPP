@@ -12,12 +12,11 @@ class Truck: public Vehicle{
 private:
     int _crates;
     routesVec _routes; // vector < destination name: (time,crates) >
-    timeVec  _times;
+    timeVec  _times; // vector < arriveTime, LeaveTime >
     int _nextIndex;
 
-
 public:
-    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType), _nextIndex(0) {Vehicle::setState("Parked");};
+    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType), _nextIndex(0) {Vehicle::setState("Moving");};
 
     int getCrates() const { return _crates; }
 
@@ -43,7 +42,6 @@ public:
 
     bool move();
 
-
     void updateInventory();
 
     void arrived();
@@ -54,9 +52,13 @@ public:
 
     void drive(double over);
 
-    double calcTimeLeft(double currTime, double leaveTime);
+    double calcTimeLeft(double time);
 
     shared_ptr<Warehouse> getNextDest();
+
+    bool needToMove();
+    bool stay();
+    void checkWithinIteration();
 };
 
 #endif //GAMESIMULATOR_TRUCK_H

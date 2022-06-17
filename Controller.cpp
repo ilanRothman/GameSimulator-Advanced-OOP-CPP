@@ -227,9 +227,8 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
     }
         catch (...){
             InvalidArgs("Invalid Arguments");
-            exitCmd();
+//            exitCmd(); // should exit program or continue?
         }
-
     }
 
 
