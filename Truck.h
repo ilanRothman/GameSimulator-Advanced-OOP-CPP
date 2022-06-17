@@ -48,7 +48,7 @@ public:
 
     bool updateIndex();
 
-    void checkIfLeave();
+    bool checkIfLeave();
 
     void drive(double over);
 
