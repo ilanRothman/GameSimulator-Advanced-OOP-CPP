@@ -14,6 +14,17 @@ using timeVec = vector< pair<string,string> >;
 using routesVec = vector < pair<string, pair<double, int> > >;
 
 class Model{
+    class TruckAttack{
+        string name;
+        vehiclePtr vehicle;
+    public:
+        TruckAttack(const string& truck, vehiclePtr& vehicle): name(truck),vehicle(vehicle){}
+        TruckAttack() = default;
+        void setName(const string &name) {TruckAttack::name = name;}
+        void setVehicle(const vehiclePtr &vehicle) {TruckAttack::vehicle = vehicle;}
+        const vehiclePtr &getVehicle() const { return vehicle;}
+        const string &getName() const {return name;}
+    };
 
     private:
     int _time;
@@ -21,14 +32,26 @@ class Model{
     vector<vehiclePtr> _vehicleLst;
     vector<warehousePtr> _warehouseLst;
     SimObjFactory* _simObjFactory;
-
+    bool _attack = false;
+    TruckAttack _truckAttack;
+    // Private Singleton Constructor
     Model();
-    static Model* Model_Instance;
 
-    public:
-        Model(const Model& rhs) = delete;
-        Model& operator=(const Model& rhs) = delete;
-        ~Model();
+public:
+    void setAttack(bool attack);
+
+    static Model* _Model_Instance;
+
+    // Copy Constructor, Need to be deleted.
+    Model(const Model& rhs) = delete;
+
+    // = Operator, Need to be deleted aswell.
+    Model& operator=(const Model& rhs) = delete;
+
+    Model& operator=(const Model&& rhs) = delete;
+
+    // Destructor
+    ~Model();
 
         int getTime()const {return _time;}
         vehiclePtr findVehicle(const string &name) const;

@@ -10,7 +10,13 @@
 #include <climits>
 #include <memory>
 
+
 class Model;
+
+/**
+ * The base object of the Vehicles and Warehouse objects in this program.
+ * was no need to implement the big 5.
+ * **/
 
 class SimulatorObj{
 
@@ -23,11 +29,15 @@ public:
 
 public:
         SimulatorObj(string& name,const Point& location,string &type): _name(name), _location(location), _type(type){};
+
+        // returns the type of the simulator object.
         string getType(){return _type;};
 
-        Point* getLoc();
-        virtual const string &getName() const;
-        void printLoc(){_location.print();};
+        Point* getLoc(); // returns the location of the object.
+
+        virtual const string &getName() const; // returns the name of the object.
+
+        void printLoc(){_location.print();}; // prints the location of the object.
 
 };
 

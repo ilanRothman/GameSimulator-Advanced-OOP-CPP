@@ -7,31 +7,45 @@
 
 #include "map"
 
+/**
+ * State Trooper vehicle object.
+ * was no need to implement the big 5.
+ * **/
 
 class Trooper: public Vehicle{
 
 private:
 
-    map<warehousePtr,bool> _visitedMap;
-    warehousePtr firstVisit;
-    warehousePtr nextDest;
+    map<warehousePtr,bool> _visitedMap; // holds all the warehouse and a boolean for each one. true if already visited in the current round.
+    warehousePtr firstVisit; // the starting warehouse.
+    warehousePtr nextDest; // next warehouse in the round.
 
 public:
 
-    Trooper(string &name,const Point& location, string Type): Vehicle(name,location, Type){Vehicle::setState("Stopped");};
+    Trooper(string &name,const Point& location, string Type);
     ~Trooper() {};
+
+    void init(vector<warehousePtr> &wHouseLst, shared_ptr<Warehouse> first); // initialized the trooper.
+
+    void makeAllFalse(); // after finishing a round makes all false again in visited loop.
+
+    void getClosest(bool &found, warehousePtr &currCloses); // returns the closest warehouse to the trooper.
+
+    void update(); // updates the location and movement.
+
+    //getters and setters.
+
     void getStatus();
+
     void setMapRouts(vector<warehousePtr> &warehouses);
-    void init(vector<warehousePtr> &wHouseLst, shared_ptr<Warehouse> first);
+
     warehousePtr getNextDest();
+
     void setNext(warehousePtr warehouse);
 
 
-//    double getDistance(const warehousePtr& dest);
-    void makeAllFalse();
 
-    void getClosest(bool &found, warehousePtr &currCloses);
-    void update(){};
+
 };
 
 #endif //GAMESIMULATOR_TROOPER_H

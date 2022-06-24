@@ -5,11 +5,15 @@ void Trooper::init(vector<warehousePtr> &wHouseLst, shared_ptr<Warehouse> first)
     this->firstVisit = first;
     setMapRouts(wHouseLst);
     nextDest = getNextDest();
+    setNext(nextDest);
+    Vehicle::setSpeed(90);
 }
 
 void Trooper::getStatus() {
-    if(getState() == "course")
+    if(getState() == "Course")
         cout << " Heading to " << getHeadingTo() << ", speed " << getSpeed() << "km/h" << endl;
+    else if(getState() == "Position")
+        cout << " Heading to (" << getHeadingTo() << ") , speed " << getSpeed() << "km/h" << endl;
     else
         cout<<  " " + getState() << endl;
 }
@@ -29,12 +33,10 @@ shared_ptr<Warehouse> Trooper::getNextDest() {
     getClosest(found,currClosest);
     if(!found){ // start new loop again.
         makeAllFalse();
-        setHeadingTo(firstVisit->getName());
-        setCourse(Point::getAngle(getLoc(),firstVisit->getLoc()));
+        setNext(firstVisit);
         return firstVisit;
     }
-    setHeadingTo(currClosest->getName());
-    setCourse(Point::getAngle(getLoc(),currClosest->getLoc()));
+    setNext(currClosest);
     return currClosest;
 }
 
@@ -68,6 +70,30 @@ void Trooper::getClosest(bool &found, warehousePtr &currClosest) {
         }
     }
 }
+
+Trooper::Trooper(string &name, const Point &location, string Type) : Vehicle(name, location, Type) {
+
+}
+
+void Trooper::update() {
+
+    if (getState() == "Position")
+        if (move(headingToPoint())) {
+            nextDest = getNextDest();
+            setNext(nextDest);
+            return;
+        }
+
+    if(getState() == "Course")
+        if (move(*nextDest->getLoc())){
+            nextDest = getNextDest();
+            _visitedMap.at(nextDest) = true;
+            setNext(nextDest);
+        }
+
+}
+
+
 
 
 

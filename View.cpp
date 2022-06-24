@@ -10,6 +10,7 @@ void View::print() const {
 
   printCount = 0;
   corY = originY + size * scale - scale;
+  printFirstLine();
 
   for(;corY >= originY; corY-= scale) { // Row Print
     cout << setw(5);
@@ -46,12 +47,18 @@ void View::drawLineBegin(int cor) const {
     cout << setw(2);
 }
 
-void View::draw(int corX, int corY) const {
+void View::printFirstLine() const{
+    cout <<  "Display size:" << to_string(getSize());
+    cout << " , scale: ";
+    cout << getScale();
+    cout << " , origin: (" << to_string(getOriginX()) << ", "  << to_string(getOriginY()) << ")" << endl;
+}
 
-  if(_objects.find(make_pair(corX,corY)) != _objects.end())
-    cout << _objects.at(make_pair(corX,corY));
-  else
-    cout << ". ";
+void View::draw(int corX, int corY) const {
+    if(_objects.find(make_pair(corX,corY)) != _objects.end())
+        cout << _objects.at(make_pair(corX,corY));
+    else
+        cout << ". ";
 }
 
 float View::getScale() const {
@@ -67,10 +74,6 @@ int View::getSize() const {
 }
 
 void View::setSize(int size) {
-    if(size < 6 || size > 30){
-        cout<< "Size not allowed" << endl;
-        return;
-    }
     _size = size;
 }
 
@@ -119,39 +122,3 @@ void View::setDefault() {
 }
 
 
-//int num;
-//    for(int i = 0; i < _size; i++) {
-//      cout<< "  ";
-//        if(i%3 == 0){
-//            num = _originY + (_size * _scale) - (i+1) * _scale;
-//            cout << num;
-//            switch(to_string(num).size()) {
-//              case 1:
-//                cout << "  ";
-//                break;
-//              case 2:
-//                cout << " ";
-//                break;
-//              case 3:
-//                cout << "";
-//                break;
-//            }
-//        }
-//        else{
-//          cout << "   ";
-//        }
-//        for (int j = 0; j < _size; j++) { // prints the dots
-//
-//            cout << ". ";
-//        }
-//        cout << endl;
-//    }
-//    cout << " ";
-//    for(int i = _size ; i >= 0; i--){
-//        if(i%3 == 0){
-//            cout << _originX + (_size * _scale) - (i+1)*_scale;
-//        }
-//        else{
-//            cout<< "  ";
-//        }
-//    }

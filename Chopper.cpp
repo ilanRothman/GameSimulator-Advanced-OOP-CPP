@@ -3,10 +3,10 @@
 
 void Chopper::getStatus() {
     if(getState() == "Course")
-        cout << " Heading on course " << getCourse() << " deg, " << "speed " << getSpeed() << " km/h" << endl;
+        cout << " Heading on course " << static_cast<unsigned int>(450 - getCourse()) % 360  << " deg, " << "speed " << getSpeed() << " km/h" << endl;
 
     else if(getState() == "Position")
-        cout << " Moving to " << getHeadingTo() << " speed " << getSpeed() << " km/h" << endl;
+        cout << " Moving to (" << getHeadingTo() << "), speed " << getSpeed() << " km/h" << endl;
     else
         cout << " " + getState() << endl;
 }
@@ -27,6 +27,7 @@ bool Chopper::attack(Vehicle::vehiclePtr &truck) {
 }
 
 void Chopper::update(){
+
     if(getState() == "Stopped")
         return;
     drive(1);
@@ -37,4 +38,7 @@ void Chopper::setCourse(double course) {
     Vehicle::setCourse(course);
     setState("Course");
 }
+
+
+
 

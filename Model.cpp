@@ -26,7 +26,7 @@ warehousePtr Model::findWareHouse(const string &name) const {
   for(auto& w: _warehouseLst)
     if(w->getName() == name)
       return w;
-  return nullptr;
+  throw ExitException("Warehouse Name doesn't match");
 }
 
 void Model::addWareHouse(string name,const Point &point, int inventory) {
@@ -82,7 +82,8 @@ void Model::createChopper(string &name, Point &startingPoint) {
     if (findVehicle(name)){
         throw;
     }
-    auto  newChopper = (_simObjFactory->create(name, startingPoint,"CHOPPER"));
+
+    auto  newChopper = (_simObjFactory->create(name, startingPoint,"Chopper"));
     _simObjects.emplace_back(newChopper);
     _vehicleLst.emplace_back(newChopper);
 }
@@ -100,13 +101,16 @@ void Model::createTrooper(string &name, string &wareHouse) {
 void Model::position(const string& corX, const string& corY, vehiclePtr &vehicle, int speed) {
     vehicle->setState("Position");
     vehicle->setHeadingTo(corX+" "+corY);
-
+    Point p = vehicle->headingToPoint();
+    vehicle->setCourse(Point::getAngle(vehicle->getLoc(),&p));
     if(speed)
         vehicle->setSpeed(speed);
 }
+
 void Model::attack(const string &truck, vehiclePtr &vehicle) {
-    vehiclePtr truckPtr = findVehicle(truck);
-    dynamic_pointer_cast<Chopper>(vehicle)->attack(truckPtr);
+    setAttack(true);
+    this->_truckAttack.setName(truck);
+    this->_truckAttack.setVehicle(vehicle);
 }
 
 void Model::destination(const string &wareHouse, vehiclePtr &vehicle) {
@@ -121,8 +125,21 @@ void Model::go() {
     _time++;
     for(auto obj : _vehicleLst){
         obj->update();
+        if(_attack) {
+            startAttack();
+            setAttack(false);
+        }
     }
 
+}
+
+void Model::setAttack(bool attack) {
+    _attack = attack;
+}
+
+void Model::startAttack() const {
+    vehiclePtr truckPtr = findVehicle(_truckAttack.getName());
+    dynamic_pointer_cast<Chopper>(_truckAttack.getVehicle())->attack(truckPtr);
 }
 
 

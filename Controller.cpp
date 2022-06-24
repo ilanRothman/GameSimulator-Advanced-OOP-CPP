@@ -53,30 +53,26 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
     string cmd;
     ss >> cmd;
 
-    try {
-        vehiclePtr vehicle = _model.findVehicle(vehicleName);
-        if (!vehicle)
-            throw;
+    vehiclePtr vehicle = _model.findVehicle(vehicleName);
+    if (!vehicle)
+        throw MyException("Vehicle Not Found");
 
-
-      switch (_commandsMap.at(cmd)) {
+    switch (_commandsMap.at(cmd)) {
         case 0: // Course
         {
+         if(vehicle->getType() != "Chopper")
+            throw MyException("Function only valid for Choppers");
 
-         if(vehicle->getType() != "CHOPPER")
-         {
-             cout << "only valid for choppers... " << endl;
-             break;
-         }
-
-         double deg, speed;
+         int deg, speed;
 
           ss >> deg >> speed;
+          deg = (450 - deg) % 360;
+            if(speed > 170)
+              throw MyException("Maximum speed for Chopper is 170 KM/H");
 
           _model.course(deg, speed, vehicleName);
           break;
         }
-
 
         case 1: // Position
         {
@@ -87,9 +83,13 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
           stoi(x); // checking if valid input
           stoi(y);
 
-          if (vehicle->getType() == "CHOPPER") {
+          if (vehicle->getType() == "Chopper") {
             ss >> speed;
+            if(stoi(speed) > 170)
+                throw MyException("Maximum speed for Chopper is 170 KM/H");
+
              _model.position(x, y, vehicle,stoi(speed));
+             return;
           }
           _model.position(x, y, vehicle);
           break;
@@ -101,7 +101,8 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
 
           ss >> wareHouse;
           if (!_model.findWareHouse(wareHouse))
-            throw;
+            throw MyException("WareHouse Not Found");
+
           _model.destination(wareHouse, vehicle);
           break;
         }
@@ -121,15 +122,7 @@ void Controller::vehicleCmd(stringstream& ss, string& vehicleName) {
             _model.stop(vehicle);
             break;
         }
-
       }
-    }
-
-    catch(...){
-      InvalidArgs("Invalid Arguments");
-      return;
-    }
-
 }
 
 void Controller::checkWareHouse() {
@@ -154,13 +147,13 @@ void Controller::checkWareHouse() {
         _model.addWareHouse(name,warePoint,inventory);
       }
 
-      catch (...){
-        InvalidArgs("Invalid Arguments");
-        exitCmd();
+      catch (...){ // catching stof exception
+          cerr << "Invalid WareHouse file" << endl;
+          exit(1);
       }
     }
 
-  _model.addWareHouse("Frankfurt",Point(15,10),100000);
+  _model.addWareHouse("Frankfurt",Point(40,10),100000);
 }
 
 void Controller::exitCmd() const{
@@ -178,11 +171,20 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
             case 6: {
                 int size;
                 ss >> size;
+                if(ss.fail())
+                    throw MyException("Not an integer");
+
+                if(size < 6 || size > 30)
+                    throw MyException("This size is not allowed.");
+
                 _view->setSize(size);
+                break;
             }
             case 7: {
                 float scale;
                 ss >> scale;
+                if(scale < 0)
+                    throw MyException("Map scale must be positive.");
                 _view->setScale(scale);
                 break;
             }
@@ -190,6 +192,10 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
                 int orgX;
                 int orgY;
                 ss >> orgX >> orgY;
+
+                if(ss.fail())
+                    throw MyException("Not an integer");
+
                 _view->setOriginX(orgX);
                 _view->setOriginY(orgY);
                 break;
@@ -205,12 +211,14 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
             case 11: {
                 string vehicleName, type, corX, corY, startWarehouse;
                 ss >> vehicleName >> type;
-                if (vehicleName.size() > 12) {
-                    cout << "name too long";
-                    return;
-                }
-                if (type == "CHOPPER") {
+
+                if (vehicleName.size() > 12)
+                    throw MyException("Vehicle name too long");
+
+                if (type == "Chopper") {
                     ss >> corX >> corY;
+                    if(corX[0] != '(' || corY[corY.size()-1] != ')')
+                        throw MyException("Not correct format");
                     corX = corX.substr(1, corX.size() - 2);
                     corY = corY.substr(0, corY.size() - 1);
                     Point startPoint(stof(corX), stof(corY));
@@ -218,18 +226,15 @@ void Controller::doCommand(stringstream& ss, string &cmd) {
                     break;
                 }
                 ss >> startWarehouse;
+
                 _model.createTrooper(vehicleName, startWarehouse);
+                break;
             }
             case 12:{
                 _model.go();
             }
         }
-    }
-        catch (...){
-            InvalidArgs("Invalid Arguments");
-//            exitCmd(); // should exit program or continue?
-        }
-    }
+}
 
 
 void Controller::mapInit()
@@ -269,6 +274,7 @@ void Controller::checkTrucks() {
 
         while (getline(truckFile,line)){
             parseLine(line, nextStop, arriveTime, crates, leaveTime);
+            _model.findWareHouse(nextStop);
             time = getTime(prevLeaveTime,arriveTime , leaveTime); // calculate travel time to dest.
             prevLeaveTime = leaveTime;
             routes.emplace_back(nextStop, make_pair(time,crates)); //adds next destination in correct order.
@@ -287,6 +293,7 @@ int Controller:: getFirstTruckIndex(){
         if (_file == "-t")
             return index; // index is now on first truck file.
     }
+    return index;
 }
 
 double Controller::getTime( string &startTime, string &endTime, string & leaveTime) {

@@ -12,36 +12,48 @@ class View{
         int _size;
         int _originX;
         int _originY;
-        map<pair<int,int>,string> _objects;
+        map<pair<int,int>,string> _objects; // object locations.
         Model& _model;
 
 
     public:
-        View(): _scale(2.0),_size(40), _originX(-20), _originY(-20), _objects(), _model(Model::get()){};
-        void print() const;
+        View(): _scale(2.0),_size(25), _originX(-10), _originY(-10), _objects(), _model(Model::get()){};
+
+        void print() const; // prints the map.
+
         void update(); // updates ALL the simObject Cords
+
+        void draw(int corX, int corY) const; // print dot or name of object.
+
+        void drawLineBegin(int cor) const; // prints the beginning of the line.
+
+        void printFirstLine() const; // prints the details of the map.
+
+        void setDefault(); // resets the map settings.
+
+
+    /**
+    *  Setters and Getters.
+    * **/
+
         void getCords(int& x, int& y,const Point& p);
-        void setDefault();
 
-    float getScale() const;
+        float getScale() const;
 
-    void setScale(float scale);
+        void setScale(float scale);
 
-    int getSize() const;
+        int getSize() const;
 
-    void setSize(int size);
+        void setSize(int size);
 
-    int getOriginX() const;
+        int getOriginX() const;
 
-    void setOriginX(int originX);
+        void setOriginX(int originX);
 
-    int getOriginY() const;
+        int getOriginY() const;
 
-    void setOriginY(int originY);
+        void setOriginY(int originY);
 
-    void draw(int corX, int corY) const;
-
-    void drawLineBegin(int cor) const;
 };
 
 #endif //GAMESIMULATOR_VIEW_H

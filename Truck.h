@@ -36,30 +36,38 @@ public:
 
     void calcCourse();
 
+    // initializes the trucks details.
     void init();
 
-    void update();
+    //updates the location and movement of the truck.
+    void update() override;
 
-    bool move();
-
+    // Updates the inventory of the truck after it reaches the warehouse
     void updateInventory();
 
+    // updated the inventories after arriving at a warehouse.
     void arrived();
 
     void updateIndex();
 
+    // calculates the time left for travel after arriving at a warehouse.
     double calcTimeLeft(int time);
 
-    shared_ptr<Warehouse> getNextDest();
+    //returns the next destination warehouse.
+    warehousePtr getNextDest();
 
+    //true if needs to leave a warehouse at the current time.
     bool needToMove();
 
+    // return true if object need to stay, false otherwise.
     bool stay();
 
     void startMove();
 
+    // checks whether the next warehouse location is in the same hour.
     bool inRange(int arriveTime);
 
+    // true if finished all the visits.
     bool done();
 
     warehousePtr getCurrentWarehouse();

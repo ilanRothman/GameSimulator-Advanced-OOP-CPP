@@ -3,8 +3,8 @@
 #include "Warehouse.h"
 
 SimObjFactory::SimObjFactory():_types() {
-  _types.insert({"TROOPER",1});
-  _types.insert({"CHOPPER",2});
+  _types.insert({"State_trooper",1});
+  _types.insert({"Chopper",2});
   _types.insert({"TRUCK",3});
 }
 

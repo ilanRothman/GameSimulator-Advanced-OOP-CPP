@@ -21,7 +21,7 @@ void Truck::getStatus() {
 void Truck::setRoutes(const routesVec &routes) {
     _routes = routes;
     int crates = 0;
-    for(auto &el: routes){
+    for(auto &el: routes){ // calculate the all the crates.
         crates += el.second.second;
     }
     setCrates(crates);
@@ -69,7 +69,7 @@ void Truck::update() {
         if (getState() == "Parked")
             startMove();
         else  // "Moving" status
-            if (move()) {
+            if (move(*getNextDest()->getLoc())) {
                 arrived();
                 startMove();
             }
@@ -150,8 +150,12 @@ void Truck::startMove() {
         return;
 
     //loop for going to all dests in current time
-    while(inRange(stoi(_times.at(_index).first)))
+    while(inRange(stoi(_times.at(_index).first))) {
         arrived();
+        if(done())
+            return;
+    }
+
 
     //if need to leave current warehouse
     if(inRange(stoi(_times.at(_index - 1).second)))
@@ -161,6 +165,7 @@ void Truck::startMove() {
     }
     else // if need to stay at warehouse
     {
+
         setLocation(*getCurrentWarehouse()->getLoc());
         if(_index == _routes.size())
             setState("OffRoad");
