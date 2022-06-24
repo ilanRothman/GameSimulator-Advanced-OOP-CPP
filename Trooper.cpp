@@ -43,7 +43,7 @@ shared_ptr<Warehouse> Trooper::getNextDest() {
 void Trooper::setNext(Vehicle::warehousePtr warehouse) {
     setHeadingTo(warehouse->getName());
     setCourse(Point::getAngle(getLoc(),warehouse->getLoc()));
-    setState("course");
+    setState("Course");
 }
 
 void Trooper::makeAllFalse() {

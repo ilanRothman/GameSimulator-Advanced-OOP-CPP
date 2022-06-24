@@ -23,6 +23,7 @@ class SimObjFactory{
     map<string,int> _types; // holds the different types of vehicles in the program.
 
     public:
+    // Constructor
     SimObjFactory();
 
     // the factory method.

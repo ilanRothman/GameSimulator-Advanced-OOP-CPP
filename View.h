@@ -6,6 +6,13 @@
 #include "Model.h"
 
 using namespace std;
+
+/**
+ * View class
+ * Part of the MVC design pattern.
+ * No need for the implementation of the "Big Five".
+ * **/
+
 class View{
     private:
         float _scale;

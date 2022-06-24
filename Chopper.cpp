@@ -30,6 +30,12 @@ void Chopper::update(){
 
     if(getState() == "Stopped")
         return;
+
+    if(getState() == "Position") {
+        if(move(headingToPoint()))
+            setState("Stopped");
+        return;
+    }
     drive(1);
 
 }

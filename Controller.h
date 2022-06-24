@@ -8,10 +8,7 @@
 #include <algorithm>
 #include <iomanip>
 
-struct InvalidArgs{
-    explicit InvalidArgs(const string& msg)
-    {cerr << msg << endl;}
-};
+
 
 using viewPtr = shared_ptr<View>;
 
@@ -42,9 +39,9 @@ private:
 
     void analyzeCmd(string &command); // checks for the type of the command and call the correct command function.
 
-    void exitCmd() const;
+    void vehicleCmd(stringstream &ss, string &vehicleName); // all the vehicle type commands.
 
-    void vehicleCmd(stringstream &ss, string &vehicleName);
+    void doCommand(stringstream& ss, string &cmd); // all the other command types.
 
     void mapInit(); // initializes the command map.
 

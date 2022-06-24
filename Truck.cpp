@@ -30,7 +30,7 @@ void Truck::setRoutes(const routesVec &routes) {
 bool Truck::checkCops() {
 
   for(const auto &obj : *Model::get().getSimObjects())
-    if(obj->getType() == "TROOPER")
+    if(obj->getType() == "State_trooper")
       if(Point::getDistance(*getLoc(),*obj->getLoc()) <= 10)
         return true;
 
@@ -74,22 +74,6 @@ void Truck::update() {
                 startMove();
             }
     }
-}
-
-// return true if arrived
-bool Truck::move() {
-
-    auto nextDest = getNextDest();
-    double currDist = Point::getDistance(*getLoc(), *nextDest->getLoc());
-    double coverDist = getSpeed();
-
-    if(coverDist >= currDist){
-        setLocation(*nextDest->getLoc());
-        return true;
-    }
-
-    drive(1);
-    return false;
 }
 
 void Truck::updateInventory() {
@@ -197,26 +181,4 @@ bool Truck::done()
 warehousePtr Truck::getCurrentWarehouse() {
     return Model::get().findWareHouse(_routes.at(_index - 1).first);
 }
-// Checks if next warehouse is in the same iteration
-//void Truck::checkWithinIteration()
-//{
-//  bool flag = true;
-//  double timeLeft;
-//
-//}
-
-
-
-//    auto next
-//    double distLeft =
-
-//      if(move())   // true if arrived to warehouse
-//        arrived();
-//    if(Model::get().getTime() - 1)
-//      if(getState() == "Parked")
-//        if(!calcTimeLeft(Model::get().getTime(), stof(_times.at(_index).second)))
-//          return;
-//
-//    if(move())
-//      arrived();
 

@@ -27,16 +27,23 @@ void Controller::analyzeCmd(string& command) {
     stringstream ss(command);
 
     if (command == "exit")
-        exitCmd();
+        exit(0);
 
     ss >> cmd; // getting the first command
-
-    if (_model.findVehicle(cmd)) { // if first word in the command is vehicle name
-        vehicleCmd(ss, cmd);
-        return;
+    try
+    {
+        if (_model.findVehicle(cmd)) { // if first word in the command is vehicle name
+            vehicleCmd(ss, cmd);
+            return;
+        }
+        doCommand(ss, cmd);
     }
-    doCommand(ss, cmd);
-
+    catch(MyException& e){}
+    catch(ExitException& e){}
+    catch(exception &e)
+    {
+        cerr << "Invalid Arguments"<< endl;
+    }
 
 }
 
@@ -156,13 +163,8 @@ void Controller::checkWareHouse() {
   _model.addWareHouse("Frankfurt",Point(40,10),100000);
 }
 
-void Controller::exitCmd() const{
-  cout << "Exiting Program";
-  exit(0);
-}
-
 void Controller::doCommand(stringstream& ss, string &cmd) {
-    try {
+
         switch (_commandsMap.at(cmd)) {
             case 5: {
                 _view->setDefault();
@@ -256,8 +258,7 @@ void Controller::mapInit()
 
 void Controller::checkTrucks() {
     string line, truckName, nextStop, arriveTime, leaveTime, prevLeaveTime, startingPoint;
-    int crates = 0;
-    int index = 0;
+    int index, crates = 0;
     double time;
     vector < pair<string, pair<double, int> > > routes; // hold the rout of the truck.
     vector< pair<string,string> > times; // holds arrive times and leave times.
@@ -307,7 +308,6 @@ double Controller::getTime( string &startTime, string &endTime, string & leaveTi
     int second_time_min = eTime / 100 * 60 + eTime % 100;
     double diff_time_min = second_time_min - first_time_min;
     return diff_time_min / 60;
-
 }
 
 void Controller::parseLine(string &line, string &nextStop, string &arriveTime, int &crates, string &leaveTime) {

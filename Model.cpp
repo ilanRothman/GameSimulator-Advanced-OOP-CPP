@@ -2,16 +2,16 @@
 #include <exception>
 #include "Model.h"
 
-Model* Model::Model_Instance;
+Model* Model::_Model_Instance = nullptr;
 
 Model::Model():_time(0),_simObjects(),_vehicleLst(),_warehouseLst(),_simObjFactory(new SimObjFactory()) {
 }
 
 Model &Model::get() {
-    if(Model_Instance == nullptr){
-        Model_Instance = new Model();
+    if(_Model_Instance == nullptr){
+        _Model_Instance = new Model();
     }
-    return *Model_Instance;
+    return *_Model_Instance;
 }
 
 vehiclePtr Model::findVehicle(const string &name) const {
@@ -37,7 +37,7 @@ void Model::addWareHouse(string name,const Point &point, int inventory) {
 }
 
 Model::~Model() {
-  delete Model_Instance;
+  delete _Model_Instance;
   delete _simObjFactory;
 }
 
@@ -72,15 +72,16 @@ void Model::getVehiclesStatus() {
     }
 }
 
-void Model::course(double deg, double speed, string &vehicleName) {
+void Model::course(double deg, double speed, string &vehicleName) const {
     vehiclePtr chopper =  findVehicle(vehicleName);
     chopper->setCourse(deg);
     chopper->setSpeed(speed);
 }
 
 void Model::createChopper(string &name, Point &startingPoint) {
+
     if (findVehicle(name)){
-        throw;
+        throw MyException("Vehicle already exists");
     }
 
     auto  newChopper = (_simObjFactory->create(name, startingPoint,"Chopper"));
@@ -89,9 +90,7 @@ void Model::createChopper(string &name, Point &startingPoint) {
 }
 
 void Model::createTrooper(string &name, string &wareHouse) {
-    if(!findWareHouse(wareHouse))
-        throw;
-    auto newTrooper = _simObjFactory->create(name, *findWareHouse(wareHouse)->getLoc(),"TROOPER");
+    auto newTrooper = _simObjFactory->create(name, *findWareHouse(wareHouse)->getLoc(),"State_trooper");
     dynamic_pointer_cast<Trooper>(newTrooper)->init(_warehouseLst, findWareHouse(wareHouse));
     newTrooper->setSpeed(90);
     _simObjects.emplace_back(newTrooper);
@@ -114,10 +113,8 @@ void Model::attack(const string &truck, vehiclePtr &vehicle) {
 }
 
 void Model::destination(const string &wareHouse, vehiclePtr &vehicle) {
-    if(vehicle->getType() != "State_trooper"){
-        cout << "not a state trooper." << endl;
-        return;
-    }
+    if(vehicle->getType() != "State_trooper")
+        throw MyException("Command valid only for State Trooper");
     dynamic_pointer_cast<Trooper>(vehicle)->setNext(findWareHouse(wareHouse));
 }
 

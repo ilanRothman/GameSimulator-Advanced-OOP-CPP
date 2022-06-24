@@ -8,6 +8,12 @@
 using routesVec = vector <pair<string, pair<double, int> > >;
 using timeVec = vector< pair<string,string> >;
 
+/**
+ * Truck class
+ * One of the simulator object.
+ * No need for the implementation of the "Big Five".
+ * **/
+
 class Truck: public Vehicle{
 private:
     int _crates;
@@ -16,24 +22,22 @@ private:
     int _index;
 
 public:
-    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType), _index(0) {Vehicle::setState("Moving");};
+    // Constructor
+    Truck(string &name, const Point& location, string vType): Vehicle(name,location,vType),_crates(0), _index(0) {Vehicle::setState("Moving");};
 
-    int getCrates() const { return _crates; }
 
-    void setRoutes(const routesVec &routes);
-
-    void setTimes(const timeVec & times);
-
-    void setCrates(int crates) { _crates = crates;}
-
-    void getStatus();
-
+    // The function will look around for State Troopers
+    // in the range of 10 KM.
     bool checkCops();
 
+    // Sets the Truck into "Robbed" mode.
+    // The inventory will be gone and the truck state will turn to "OffRoad".
     void robbed();
 
+    // Calculate the speed of the Truck per hour.
     void calcSpeed();
 
+    // Calculate the angle of the current Truck course.
     void calcCourse();
 
     // initializes the trucks details.
@@ -48,6 +52,7 @@ public:
     // updated the inventories after arriving at a warehouse.
     void arrived();
 
+    // updates the next location of the truck, if it finishes the truck state will turn into "OffRoad".
     void updateIndex();
 
     // calculates the time left for travel after arriving at a warehouse.
@@ -62,6 +67,7 @@ public:
     // return true if object need to stay, false otherwise.
     bool stay();
 
+    // starts to move after parking state.
     void startMove();
 
     // checks whether the next warehouse location is in the same hour.
@@ -70,7 +76,22 @@ public:
     // true if finished all the visits.
     bool done();
 
+
+    /**
+     * Setters and Getters
+     */
+    int getCrates() const { return _crates; }
+
+    void setRoutes(const routesVec &routes);
+
+    void setTimes(const timeVec & times);
+
+    void setCrates(int crates) { _crates = crates;}
+
+    void getStatus() override;
+
     warehousePtr getCurrentWarehouse();
+
 };
 
 #endif //GAMESIMULATOR_TRUCK_H
